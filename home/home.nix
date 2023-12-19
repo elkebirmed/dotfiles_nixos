@@ -44,8 +44,8 @@
         "$mod, UP, fullscreen, 1"
         ",F11, fullscreen"
         "ALT, TAB, cyclenext"
-      ]
-    }
+      ];
+    };
   };
 
   programs.neovim = {
