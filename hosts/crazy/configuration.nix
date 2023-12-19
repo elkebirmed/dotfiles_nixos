@@ -41,9 +41,9 @@
   };
 
   # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-  # services.xserver.layout = "fr";
-  # services.xserver.xkbVariant = "";
+  services.xserver.enable = true;
+  services.xserver.layout = "fr";
+  services.xserver.xkbVariant = "";
   # services.xserver.displayManager.sddm.enable = true;
   # services.xserver.desktopManager.gnome.enable = true;
 

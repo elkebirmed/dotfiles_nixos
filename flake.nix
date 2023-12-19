@@ -10,9 +10,11 @@
     };
 
     hardware.url = "github:nixos/nixos-hardware";
+
+    hyprland.url = "github:hyprwm/hyprland";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, hyprland, ... }@inputs: {
     nixosConfigurations = {
       crazy = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
@@ -30,6 +32,12 @@
 
 	modules = [
           ./home/home.nix
+	  hyprland.homeManagerModules.default
+	  {wayland.windowManager.hyprland = {
+            enable = true;
+	    xwayland.enable = true;
+	    systemd.enable = true;
+	  };}
 	];
       };
     };
