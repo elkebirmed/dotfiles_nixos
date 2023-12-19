@@ -33,7 +33,7 @@
     EDITOR = "nvim";
   };
 
-  home.sessionAliases = {
+  home.shellAliases = {
     l = "exa";
     ls = "exa";
     cat = "bat";
