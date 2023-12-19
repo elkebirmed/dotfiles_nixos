@@ -12,7 +12,7 @@
     hardware.url = "github:nixos/nixos-hardware";
   };
 
-  outputs = { self, nixpkgs, home-manager }@inputs: {
+  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
     nixosConfigurations = {
       crazy = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
