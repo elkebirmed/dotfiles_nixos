@@ -3,8 +3,7 @@
 {
   home.username = "mohamed";
   home.homeDirectory = "/home/mohamed";
-
-  programs.home-manager.enable = true;
+  home.stateVersion = "23.11";
 
   programs.alacritty.enable = true;
   programs.firefox.enable = true;

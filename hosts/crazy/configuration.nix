@@ -84,12 +84,14 @@
   ];
 
   programs = {
+    home-manager = {
+      enable = true;
+    };
+
     zsh = {
       enable = true;
     };
   };
-
-  home.stateVersion = "23.11";
 
   nixpkgs = {
     config = {
