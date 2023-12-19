@@ -28,26 +28,6 @@
     eza
   ];
 
-  wayland.windowManager.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-    systemd.enable = true;
-
-    settings = {
-      "$mod" = "SUPER";
-
-      bind = [
-        "$mod SHIFT, Return, exec, alacritty"
-        "$mod SHIFT, Q, exit"
-        "$mod SHIFT, C, killactive"
-        "$mod, V, togglefloating"
-        "$mod, UP, fullscreen, 1"
-        ",F11, fullscreen"
-        "ALT, TAB, cyclenext"
-      ];
-    };
-  };
-
   programs.neovim = {
     enable = true;
     viAlias = true;
