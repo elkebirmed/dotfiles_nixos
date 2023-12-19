@@ -70,7 +70,6 @@
     description = "Mohamed Elkebir";
     extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [];
-    shell = pkgs.zsh;
   };
 
   environment.systemPackages = with pkgs; [
@@ -82,19 +81,6 @@
 
     inputs.sddm-sugar-catppuccin.packages.${pkgs.system}.default
   ];
-
-  programs = {
-    zsh = {
-      enable = true;
-    };
-  };
-
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-      allowUnfreePredicate = (_: true);
-    };
-  };
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
