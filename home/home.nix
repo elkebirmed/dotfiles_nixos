@@ -20,7 +20,7 @@
     ripgrep
     jq
     tree
-    exa
+    eza
   ];
 
   programs.neovim = {
@@ -34,8 +34,8 @@
   };
 
   home.shellAliases = {
-    l = "exa";
-    ls = "exa";
+    l = "eza";
+    ls = "eza";
     cat = "bat";
   };
 
