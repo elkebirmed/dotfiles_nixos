@@ -3,14 +3,6 @@
 {
   home.username = "mohamed";
   home.homeDirectory = "/home/mohamed";
-  home.stateVersion = "23.11";
-
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-      allowUnfreePredicate = (_: true);
-    };
-  };
 
   programs.home-manager.enable = true;
 
