@@ -43,11 +43,6 @@
         modules = [
           ./home/home.nix
           hyprland.homeManagerModules.default
-          {wayland.windowManager.hyprland = {
-            enable = true;
-            xwayland.enable = true;
-            systemd.enable = true;
-          };}
 	      ];
       };
     };

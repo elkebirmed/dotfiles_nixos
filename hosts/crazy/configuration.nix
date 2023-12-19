@@ -33,7 +33,18 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    extraLocaleSettings = {
+      LANGUAGE = "en_US.UTF-8";
+      LC_ALL = "en_US.UTF-8";
+      LC_MEASUREMENT = "en_GB.UTF-8";
+      LC_NUMERIC = "en_GB.UTF-8";
+      LC_TIME = "en_GB.UTF-8";
+    };
+    supportedLocales = [ "all" ];
+  };  
+
   console = {
     font = "Lat2-Terminus16";
     keyMap = "fr";
