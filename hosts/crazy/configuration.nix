@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   imports =
@@ -66,6 +66,11 @@
     enable = true;
   };
 
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = with pkgs; [
+    xdg-desktop-portal-gtk
+  ];
+
   # services.xserver.desktopManager.gnome.enable = true;
 
 
@@ -102,6 +107,8 @@
     neovim
     curl
     git
+
+    inputs.sddm-sugar-catppuccin.packages.${pkgs.system}.default
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
