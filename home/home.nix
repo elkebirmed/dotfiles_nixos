@@ -11,8 +11,6 @@
       allowUnfreePredicate = (_: true);
     };
   };
-  
-  #xsession.windowManager.xmonad.enable = true;
 
   programs.home-manager.enable = true;
 

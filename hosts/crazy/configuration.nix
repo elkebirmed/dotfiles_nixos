@@ -48,13 +48,16 @@
 
   services.xserver.displayManager.sddm = {
     enable = true;
+    autoNumlock = true;
+    wayland.enable = true;
+    # theme = "sugar-catppuccin";
 
-#    settings = {
- #     autologin = {
-  #      Session = "hyprland.desktop";
-#	User = "mohamed";
- #     };
-  #  };
+    settings = {
+      autologin = {
+         Session = "hyprland";
+	      User = "mohamed";
+      };
+    };
   };
 
   programs.hyprland.enable = true;

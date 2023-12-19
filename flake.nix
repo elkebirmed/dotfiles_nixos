@@ -11,34 +11,44 @@
 
     hardware.url = "github:nixos/nixos-hardware";
 
-    #hyprland.url = "github:hyprwm/hyprland";
+    nixpkgs-wayland = {
+      url = "github:nix-community/nixpkgs-wayland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    sddm-sugar-catppuccin = {
+      url = "github:TiagoDamascena/sddm-sugar-catppuccin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hyprland.url = "github:hyprwm/hyprland";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, hyprland, ... }@inputs: {
     nixosConfigurations = {
       crazy = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
 
-	modules = [
+        modules = [
           ./hosts/crazy/configuration.nix
-	];
+        ];
       };
     };
 
     homeConfigurations = {
       "mohamed@crazy" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
-	extraSpecialArgs = { inherit inputs; };
+	      extraSpecialArgs = { inherit inputs; };
 
-	modules = [
+        modules = [
           ./home/home.nix
-	  #hyprland.homeManagerModules.default
-	  #{wayland.windowManager.hyprland = {
-           # enable = true;
-	   # xwayland.enable = true;
-	   # systemd.enable = true;
-	  #};}
-	];
+          hyprland.homeManagerModules.default
+          {wayland.windowManager.hyprland = {
+            enable = true;
+            xwayland.enable = true;
+            systemd.enable = true;
+          };}
+	      ];
       };
     };
   };
