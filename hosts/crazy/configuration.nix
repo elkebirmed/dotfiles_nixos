@@ -49,7 +49,7 @@
       xkbVariant = "";
       displayManager.lightdm.enable = false;
 
-      sddm = {
+      displayManager.sddm = {
         enable = true;
         autoNumlock = true;
         wayland.enable = true;
