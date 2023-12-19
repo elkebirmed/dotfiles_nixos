@@ -44,7 +44,25 @@
   services.xserver.enable = true;
   services.xserver.layout = "fr";
   services.xserver.xkbVariant = "";
-  # services.xserver.displayManager.sddm.enable = true;
+  services.xserver.displayManager.lightdm.enable = false;
+
+  services.xserver.displayManager.sddm = {
+    enable = true;
+
+#    settings = {
+ #     autologin = {
+  #      Session = "hyprland.desktop";
+#	User = "mohamed";
+ #     };
+  #  };
+  };
+
+  programs.hyprland.enable = true;
+
+  programs.hyprland.xwayland = {
+    enable = true;
+  };
+
   # services.xserver.desktopManager.gnome.enable = true;
 
 
