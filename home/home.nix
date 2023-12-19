@@ -8,7 +8,7 @@
   noxpkgs = {
     config = {
       allowUnfree = true;
-      allowUnfreePredicate = {_: true);
+      allowUnfreePredicate = (_: true);
     };
   };
 
