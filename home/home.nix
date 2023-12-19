@@ -5,6 +5,7 @@
   home.homeDirectory = "/home/mohamed";
   home.stateVersion = "23.11";
 
+  programs.home-manager.enable = true;
   programs.alacritty.enable = true;
   programs.firefox.enable = true;
   programs.vscode.enable = true;
