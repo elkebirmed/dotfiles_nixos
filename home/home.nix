@@ -5,7 +5,7 @@
   home.homeDirectory = "/home/mohamed";
   home.stateVersion = "23.11";
 
-  noxpkgs = {
+  nixpkgs = {
     config = {
       allowUnfree = true;
       allowUnfreePredicate = (_: true);
