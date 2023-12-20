@@ -69,7 +69,9 @@
     isNormalUser = true;
     description = "Mohamed Elkebir";
     extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [];
+    packages = with pkgs; [
+      gh
+    ];
   };
 
   environment.systemPackages = with pkgs; [

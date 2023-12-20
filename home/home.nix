@@ -16,7 +16,6 @@
   programs.alacritty.enable = true;
   programs.firefox.enable = true;
   programs.vscode.enable = true;
-  programs.gh.enable = true;
 
   home.packages = with pkgs; [
     bat
