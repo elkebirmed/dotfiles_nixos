@@ -10,13 +10,8 @@
     };
 
     hardware.url = "github:nixos/nixos-hardware";
-
+    impermanence.url = "github:nix-community/impermanence";
     nix-colors.url = "github:misterio77/nix-colors";
-
-    # nix-gaming = {
-    #   url = "github:fufexan/nix-gaming";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
 
     nh = {
       url = "github:viperml/nh";
@@ -67,14 +62,18 @@
     in
     {
       inherit lib;
+
+      overlays = import ./overlays { inherit inputs outputs; };
       formatter = forEachSystem (pkgs: pkgs.nixpkgs-fmt);
-      
+
+      wallpapers = import ./home/mohamed/wallpapers;
+
       nixosConfigurations = {
         crazy = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
 
           modules = [
-            ./hosts/crazy/configuration.nix
+            ./hosts/crazy
           ];
         };
       };
@@ -85,7 +84,7 @@
           extraSpecialArgs = { inherit inputs outputs; };
 
           modules = [
-            ./home/home.nix
+            ./home/mohamed/crazy.nix
           ];
         };
       };
