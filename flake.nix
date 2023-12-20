@@ -63,12 +63,8 @@
     {
       inherit lib;
 
-      nixosModules = import ./modules/nixos;
-      homeManagerModules = import ./modules/home-manager;
       overlays = import ./overlays { inherit inputs outputs; };
       formatter = forEachSystem (pkgs: pkgs.nixpkgs-fmt);
-
-      wallpapers = import ./home/mohamed/wallpapers;
 
       nixosConfigurations = {
         crazy = nixpkgs.lib.nixosSystem {
