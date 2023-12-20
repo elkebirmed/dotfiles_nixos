@@ -63,6 +63,7 @@
     {
       inherit lib;
 
+      nixosModules = import ./modules/nixos;
       overlays = import ./overlays { inherit inputs outputs; };
       formatter = forEachSystem (pkgs: pkgs.nixpkgs-fmt);
 
