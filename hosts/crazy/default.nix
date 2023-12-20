@@ -42,6 +42,11 @@
 
   services.openssh.enable = true;
 
+  services.xserver.enable = true;
+  services.xserver.layout = "fr";
+  services.xserver.xkbVariant = "";
+  services.xserver.displayManager.lightdm.enable = false;
+
   users.users.mohamed = {
     isNormalUser = true;
     description = "Mohamed Elkebir";

@@ -3,6 +3,8 @@
   home.packages = [ 
     pkgs.gh
   ];
+  
+  programs.vscode.enable = true;
 
   programs.git = {
     enable = true;
@@ -12,7 +14,7 @@
     extraConfig = {
       init.defaultBranch = "main";
 
-      credential.helper = "gh auth git-credential";
+      credential.helper = "!gh auth git-credential";
     };
   };
 }
