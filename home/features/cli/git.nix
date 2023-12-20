@@ -14,7 +14,7 @@
     extraConfig = {
       init.defaultBranch = "main";
 
-      credential.helper = "!gh auth git-credential";
+      credential.helper = "gh auth git-credential";
     };
   };
 }
