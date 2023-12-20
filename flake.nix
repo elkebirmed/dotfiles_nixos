@@ -11,9 +11,36 @@
 
     hardware.url = "github:nixos/nixos-hardware";
 
+    nix-colors.url = "github:misterio77/nix-colors";
+
+    # nix-gaming = {
+    #   url = "github:fufexan/nix-gaming";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+
+    nh = {
+      url = "github:viperml/nh";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixpkgs-wayland = {
       url = "github:nix-community/nixpkgs-wayland";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hyprland = {
+      url = "github:hyprwm/hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hyprwm-contrib = {
+      url = "github:hyprwm/contrib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
     };
 
     sddm-sugar-catppuccin = {
@@ -21,30 +48,47 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "github:hyprwm/hyprland";
-  };
-
-  outputs = { self, nixpkgs, home-manager, hyprland, ... }@inputs: {
-    nixosConfigurations = {
-      crazy = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
-
-        modules = [
-          ./hosts/crazy/configuration.nix
-        ];
-      };
-    };
-
-    homeConfigurations = {
-      "mohamed@crazy" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-	      extraSpecialArgs = { inherit inputs; };
-
-        modules = [
-          ./home/home.nix
-          hyprland.homeManagerModules.default
-	      ];
-      };
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
+
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+    let
+      inherit (self) outputs;
+      lib = nixpkgs.lib // home-manager.lib;
+      systems = [ "x86_64-linux" ];
+      forEachSystem = f: lib.genAttrs systems (system: f pkgsFor.${system});
+      pkgsFor = lib.genAttrs systems (system: import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      });
+    in
+    {
+      inherit lib;
+      formatter = forEachSystem (pkgs: pkgs.nixpkgs-fmt);
+      
+      nixosConfigurations = {
+        crazy = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+
+          modules = [
+            ./hosts/crazy/configuration.nix
+          ];
+        };
+      };
+
+      homeConfigurations = {
+        "mohamed@crazy" = home-manager.lib.homeManagerConfiguration {
+          pkgs = pkgsFor.x86_64-linux;
+          extraSpecialArgs = { inherit inputs outputs; };
+
+          modules = [
+            ./home/home.nix
+            hyprland.homeManagerModules.default
+          ];
+        };
+      };
+    };
 }
