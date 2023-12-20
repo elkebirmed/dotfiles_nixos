@@ -9,7 +9,8 @@ let
   hasNeomutt = config.programs.neomutt.enable;
   hasShellColor = config.programs.shellcolor.enable;
   hasKitty = config.programs.kitty.enable;
-  shellcolor = "${pkgs.shellcolord}/bin/shellcolor";
+  # TODO: change colorscheme
+  # shellcolor = "${pkgs.shellcolord}/bin/shellcolor";
 in
 {
   programs.fish = {
