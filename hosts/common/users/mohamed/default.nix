@@ -21,7 +21,7 @@ in
 
     # openssh.authorizedKeys.keys = [ (builtins.readFile ../../../../home/mohamed/ssh.pub) ];
     # hashedPasswordFile = config.sops.secrets.mohamed-password.path;
-    packages = whith pkgs; [
+    packages = with pkgs; [
       home-manager
       gh
     ];
