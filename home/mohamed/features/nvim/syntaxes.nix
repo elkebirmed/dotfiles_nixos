@@ -17,10 +17,8 @@
       vim-markdown
       vim-nix
       vim-toml
-      gemini-vim-syntax
       kotlin-vim
       haskell-vim
-      mermaid-vim
       pgsql-vim
       vim-terraform
       vim-jsx-typescript
