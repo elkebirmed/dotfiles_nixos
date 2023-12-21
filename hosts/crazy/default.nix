@@ -41,7 +41,6 @@ in
       
     packages = with pkgs; [
       home-manager
-      inputs.sddm-sugar-catppuccin.packages.${pkgs.system}.default
     ];
   };
 

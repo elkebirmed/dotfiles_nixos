@@ -20,4 +20,8 @@
   };
 
   services.xserver.displayManager.sessionPackages = [ pkgs.hyprland ];
+
+  environment.systemPackages = with pkgs; [
+    inputs.sddm-sugar-catppuccin.packages.${pkgs.system}.default
+  ];
 }
