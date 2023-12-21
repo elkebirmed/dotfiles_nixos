@@ -16,7 +16,7 @@ let
 in
 {
   users.extraUsers.greeter = {
-    packages = [
+    packages = with pkgs; [
       theme-vertex
       papirus-icon-theme
     ];
