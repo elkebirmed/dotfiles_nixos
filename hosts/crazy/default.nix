@@ -31,8 +31,12 @@
       "libvirtd"
       ];
       
-    packages = with pkgs; [];
+    packages = with pkgs; [
+      home-manager
+    ];
   };
+
+  home-manager.users.mohamed = import ../../../home/mohamed/${config.networking.hostName}.nix;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
