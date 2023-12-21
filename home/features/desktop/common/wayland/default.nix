@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   xdg.mimeApps.enable = true;
-  
+
   home.packages = with pkgs; [
     grim
     gtk3 # For gtk-launch
@@ -23,6 +23,4 @@
     QT_QPA_PLATFORM = "wayland";
     LIBSEAT_BACKEND = "logind";
   };
-
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-wlr ];
 }
