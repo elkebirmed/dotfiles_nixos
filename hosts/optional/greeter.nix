@@ -2,7 +2,7 @@
 let
   inherit (inputs.nix-colors.lib-contrib { inherit pkgs; }) gtkThemeFromScheme;
 
-  homeSharePaths = lib.mapAttrsToList (n: v: "${v.exraOptions.user.path}/share") user;
+  homeSharePaths = lib.mapAttrsToList (n: v: "${v.exraOptions.user.path}/share") exraOptions;
   vars = ''XDG_DATA_DIRS="$XDG_DATA_DIRS:${lib.concatStringsSep ":" homeSharePaths}"'';
 
   sway-kiosk = command: "${lib.getExe pkgs.sway} --config ${pkgs.writeText "kiosk.config" ''
