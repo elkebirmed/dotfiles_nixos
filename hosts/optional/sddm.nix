@@ -2,8 +2,9 @@
 
 {
   services.xserver = {
+    displayManager.lightdm.enable = false;
+    
     displayManager.sddm = {
-      lightdm.enable = false;
 
       enable = true;
       autoNumlock = true;
