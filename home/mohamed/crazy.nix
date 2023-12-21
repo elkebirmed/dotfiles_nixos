@@ -3,6 +3,7 @@
 {
   imports = [
     ../features/cli
+    ../features/desktop/hyprland
   ];
 
   home.username = "mohamed";
