@@ -4,6 +4,8 @@
     inputs.nix-colors.homeManagerModules.default
   ];
 
+  colorScheme = inputs.nix-colors.colorSchemes.dracula;
+
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
