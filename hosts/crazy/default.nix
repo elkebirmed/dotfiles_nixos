@@ -3,16 +3,30 @@
 {
   imports =
     [ 
-      ../common
+      inputs.hardware.nixosModules.common-cpu-amd
+      inputs.hardware.nixosModules.common-gpu-amd
+      inputs.hardware.nixosModules.common-pc-ssd
       
-      # Include the results of the hardware scan.
       ./hardware-configuration.nix
+
+      ../common
     ];
 
   users.users.mohamed = {
     isNormalUser = true;
     description = "Mohamed Elkebir";
-    extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+    
+    extraGroups = [
+      "wheel" 
+      "networkmanager"
+      "video"
+      "audio"
+      "mysql"
+      "docker"
+      "podman"
+      "libvirtd"
+      ];
+      
     packages = with pkgs; [];
   };
 
@@ -98,6 +112,17 @@
       monospace = ["JetBrainsMono Nerd Font" "Noto Color Emoji"];
       emoji = ["Noto Color Emoji"];
     };
+  };
+
+  programs = {
+    adb.enable = true;
+    dconf.enable = true;
+    kdeconnect.enable = true;
+  };
+
+  hardware = {
+    opengl.enable = true;
+    opentabletdriver.enable = true;
   };
 
   # Enable sound with pipewire.

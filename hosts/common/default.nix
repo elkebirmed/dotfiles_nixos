@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, outputs, ... }:
 
 {
   nix.settings = {
@@ -9,15 +9,27 @@
   nix.gc = {
     automatic = lib.mkDefault true;
     dates = lib.mkDefault "weekly";
-    options = lib.mkDefault "--delete-older-than 7d";
+    options = lib.mkDefault "--delete-older-than +5";
   };
 
+  # Add each flake input as a registry
+  # To make nix3 commands consistent with the flake
+  nix.registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
+
+  # Add nixpkgs input to NIX_PATH
+  # This lets nix2 commands still use <nixpkgs>
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs.outPath}" ];
+
   # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    overlays = builtins.attrValues outputs.overlays;
+    config.allowUnfree = true;
+  };
 
   networking = {
     networkmanager.enable = true;
     resolvconf.dnsExtensionMechanism = false;
+    useDHCP = true;
   }; 
 
   environment.systemPackages = with pkgs; [
