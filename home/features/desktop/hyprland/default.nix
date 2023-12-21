@@ -1,5 +1,5 @@
 { pkgs, inputs, ... }: {
   imports = [
-    hyprland.homeManagerModules.default
+    inputs.hyprland.homeManagerModules.default
   ];
 }
