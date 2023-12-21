@@ -29,7 +29,6 @@
   networking = {
     networkmanager.enable = true;
     resolvconf.dnsExtensionMechanism = false;
-    useDHCP = true;
   }; 
 
   environment.systemPackages = with pkgs; [
