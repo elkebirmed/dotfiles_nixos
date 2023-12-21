@@ -3,5 +3,5 @@
     enable = true;
   };
   
-  home.sessionVariables.EDITOR = "${config.programs.alacritty.package}/bin/alacritty";
+  home.sessionVariables.TERMINAL = "${config.programs.alacritty.package}/bin/alacritty";
 }
