@@ -1,6 +1,7 @@
 { pkgs, inputs, config, ... }: {
   imports = [
     inputs.hyprland.homeManagerModules.default
+    inputs.nix-colors.homeManagerModules.default
   ];
 
   wayland.windowManager.hyprland = {
