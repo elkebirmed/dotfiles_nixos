@@ -109,7 +109,7 @@
 
       # grimblast = "${pkgs.inputs.hyprwm-contrib.grimblast}/bin/grimblast";
       pactl = "${pkgs.pulseaudio}/bin/pactl";
-      tly = "${pkgs.tly}/bin/tly";
+      # tly = "${pkgs.tly}/bin/tly";
       gtk-play = "${pkgs.libcanberra-gtk3}/bin/canberra-gtk-play";
       notify-send = "${pkgs.libnotify}/bin/notify-send";
 
@@ -174,10 +174,10 @@
       # "SUPER,Print,exec,${grimblast} --notify --freeze copy area"
       # "ALT,Print,exec,${grimblast} --notify --freeze copy area"
       # Tally counter
-      "SUPER,z,exec,${notify-send} -t 1000 $(${tly} time) && ${tly} add && ${gtk-play} -i dialog-information" # Add new entry
-      "SUPERCONTROL,z,exec,${notify-send} -t 1000 $(${tly} time) && ${tly} undo && ${gtk-play} -i dialog-warning" # Undo last entry
-      "SUPERCONTROLSHIFT,z,exec,${tly} reset && ${gtk-play} -i complete" # Reset
-      "SUPERSHIFT,z,exec,${notify-send} -t 1000 $(${tly} time)" # Show current time
+      # "SUPER,z,exec,${notify-send} -t 1000 $(${tly} time) && ${tly} add && ${gtk-play} -i dialog-information" # Add new entry
+      # "SUPERCONTROL,z,exec,${notify-send} -t 1000 $(${tly} time) && ${tly} undo && ${gtk-play} -i dialog-warning" # Undo last entry
+      # "SUPERCONTROLSHIFT,z,exec,${tly} reset && ${gtk-play} -i complete" # Reset
+      # "SUPERSHIFT,z,exec,${notify-send} -t 1000 $(${tly} time)" # Show current time
     ] ++
 
     (lib.optionals config.services.playerctld.enable [
