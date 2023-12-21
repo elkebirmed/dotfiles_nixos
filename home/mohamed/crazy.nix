@@ -4,6 +4,7 @@
   imports = [
     ../features/cli
     ../features/desktop/hyprland
+    ../features/desktop/programs/alacritty.nix
   ];
 
   home.username = "mohamed";
