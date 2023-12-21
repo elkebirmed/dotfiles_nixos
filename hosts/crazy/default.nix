@@ -18,6 +18,8 @@ in
       ../common
 
       ../optional/fonts.nix
+      ../optional/desktop.nix
+      ../optional/hyprland.nix
       ../optional/sddm.nix
       ../optional/pipewire.nix
     ];
@@ -81,13 +83,7 @@ in
 
   programs = {
     adb.enable = true;
-    dconf.enable = true;
     kdeconnect.enable = true;
-  };
-
-  hardware = {
-    opengl.enable = true;
-    opentabletdriver.enable = true;
   };
 
   # This option defines the first version of NixOS you have installed on this particular machine,
