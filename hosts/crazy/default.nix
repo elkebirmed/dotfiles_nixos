@@ -10,6 +10,10 @@
       ./hardware-configuration.nix
 
       ../common
+
+      ../optional/fonts.nix
+      ../optional/greeter.nix
+      ../optional/pipewire.nix
     ];
 
   users.users.mohamed = {
@@ -64,55 +68,7 @@
     keyMap = "fr";
   };
 
-  services = {
-    printing.enable = true;
-
-    # Enable the OpenSSH daemon.
-    openssh = {
-      enable = true;
-      openFirewall = true;
-
-      settings = {
-        X11Forwarding = true;
-        PermitRootLogin = "no"; # disable root login
-        PasswordAuthentication = false; # disable password login
-      };
-    };
-
-    xserver = {
-      enable = true;
-      layout = "fr";
-      xkbVariant = "";
-      displayManager.lightdm.enable = false;
-    };
-  };
-
-  fonts = {
-    packages = with pkgs; [
-      # icon fonts
-      material-design-icons
-
-      # normal fonts
-      noto-fonts
-      noto-fonts-emoji
-
-      # nerdfonts
-      (nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})
-    ];
-
-    # use fonts specified by user rather than default ones
-    enableDefaultPackages = false;
-
-    # user defined fonts
-    # the reason there's Noto Color Emoji everywhere is to override DejaVu's
-    # B&W emojis that would sometimes show instead of some Color emojis
-    fontconfig.defaultFonts = {
-      serif = ["Noto Serif" "Noto Color Emoji"];
-      sansSerif = ["Noto Sans" "Noto Color Emoji"];
-      monospace = ["JetBrainsMono Nerd Font" "Noto Color Emoji"];
-      emoji = ["Noto Color Emoji"];
-    };
-  };
+  services.printing.enable = true;
 
   programs = {
     adb.enable = true;
@@ -123,28 +79,6 @@
   hardware = {
     opengl.enable = true;
     opentabletdriver.enable = true;
-  };
-
-  # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  services.power-profiles-daemon = {
-    enable = true;
-  };
-  security.polkit.enable = true;
-
-  services = {
-    dbus.packages = [pkgs.gcr];
-
-    geoclue2.enable = true;
-
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-      jack.enable = true;
-    };
   };
 
   # This option defines the first version of NixOS you have installed on this particular machine,

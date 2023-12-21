@@ -1,6 +1,11 @@
 { config, lib, pkgs, inputs, outputs, ... }:
 
 {
+  imports =
+    [ 
+      ./ssh.nix
+    ];
+
   nix.settings = {
     experimental-features = ["nix-command" "flakes"];
   };

@@ -4,8 +4,6 @@
     pkgs.gh
   ];
   
-  programs.vscode.enable = true;
-
   programs.git = {
     enable = true;
     userName = "Mohamed Elkebir";
