@@ -1,5 +1,7 @@
 { config, lib, pkgs, inputs, user, ... }:
 let
+  inherit (inputs.nix-colors.lib-contrib { inherit pkgs; }) gtkThemeFromScheme;
+
   homeSharePaths = lib.mapAttrsToList (n: v: "${v.user.path}/share") user;
   vars = ''XDG_DATA_DIRS="$XDG_DATA_DIRS:${lib.concatStringsSep ":" homeSharePaths}"'';
 
@@ -15,8 +17,8 @@ in
 {
   users.extraUsers.greeter = {
     packages = [
-      gtkTheme
-      iconTheme
+      theme-vertex
+      papirus-icon-theme
     ];
 
     # For caching and such
@@ -30,7 +32,7 @@ in
     settings = {
       GTK = {
         icon_theme_name = "Papirus";
-        theme_name = "Adwaita";
+        theme_name = "Vertex";
       };
 
       # background = {
