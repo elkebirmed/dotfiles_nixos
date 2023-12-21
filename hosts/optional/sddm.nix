@@ -3,10 +3,12 @@
 {
   services.xserver = {
     displayManager.sddm = {
+      lightdm.enable = false;
+
       enable = true;
       autoNumlock = true;
       wayland.enable = true;
-      theme = "sugar-catppuccin";
+      # theme = "sugar-catppuccin";
 
       settings = {
         autologin = {
@@ -20,6 +22,5 @@
     enable = true;
     layout = "fr";
     xkbVariant = "";
-    displayManager.lightdm.enable = false;
   };
 }
