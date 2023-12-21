@@ -1,5 +1,9 @@
 { config, lib, pkgs, inputs, ... }:
-
+let
+  user = {
+    path = "/home/mohamed";
+  };
+in
 {
   imports =
     [ 
@@ -12,7 +16,7 @@
       ../common
 
       ../optional/fonts.nix
-      ../optional/greeter.nix
+      ../optional/greeter.nix { inherit user; }
       ../optional/pipewire.nix
     ];
 
@@ -35,8 +39,6 @@
       home-manager
     ];
   };
-
-  home-manager.users.mohamed = import ../../../home/mohamed/${config.networking.hostName}.nix;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;

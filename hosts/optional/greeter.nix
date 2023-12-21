@@ -1,13 +1,7 @@
-{ config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, user, ... }:
 let
-  homeCfgs = config.home-manager.users;
-  homeSharePaths = lib.mapAttrsToList (n: v: "${v.home.path}/share") homeCfgs;
+  homeSharePaths = lib.mapAttrsToList (n: v: "${v.user.path}/share") user;
   vars = ''XDG_DATA_DIRS="$XDG_DATA_DIRS:${lib.concatStringsSep ":" homeSharePaths}"'';
-
-  mohamedCfg = homeCfgs.mohamed;
-  gtkTheme = mohamedCfg.gtk.theme;
-  iconTheme = mohamedCfg.gtk.iconTheme;
-  wallpaper = mohamedCfg.wallpaper;
 
   sway-kiosk = command: "${lib.getExe pkgs.sway} --config ${pkgs.writeText "kiosk.config" ''
     output * bg #000000 solid_color
@@ -21,9 +15,10 @@ in
 {
   users.extraUsers.greeter = {
     packages = [
-      gtkTheme.package
-      iconTheme.package
+      gtkTheme
+      iconTheme
     ];
+
     # For caching and such
     home = "/tmp/greeter-home";
     createHome = true;
@@ -35,13 +30,13 @@ in
     settings = {
       GTK = {
         icon_theme_name = "Papirus";
-        theme_name = gtkTheme.name;
+        theme_name = "Adwaita";
       };
 
-      background = {
-        path = wallpaper;
-        fit = "Cover";
-      };
+      # background = {
+      #   path = wallpaper;
+      #   fit = "Cover";
+      # };
     };
   };
 
