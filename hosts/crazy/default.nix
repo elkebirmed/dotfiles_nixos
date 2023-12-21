@@ -1,7 +1,9 @@
 { config, lib, pkgs, inputs, ... }:
 let
-  user = {
-    path = "/home/mohamed";
+  exraOptions = {
+    user = {
+      path = "/home/mohamed";
+    };
   };
 in
 {
@@ -16,7 +18,7 @@ in
       ../common
 
       ../optional/fonts.nix
-      ../optional/greeter.nix { inherit user; }
+      ../optional/greeter.nix { inherit exraOptions; }
       ../optional/pipewire.nix
     ];
 
