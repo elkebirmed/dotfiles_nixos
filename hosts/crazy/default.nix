@@ -18,7 +18,7 @@ in
       ../common
 
       ../optional/fonts.nix
-      ../optional/greeter.nix { inherit exraOptions; }
+      ../optional/sddm.nix
       ../optional/pipewire.nix
     ];
 
