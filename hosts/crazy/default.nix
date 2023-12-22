@@ -24,6 +24,8 @@ in
       ../optional/pipewire.nix
     ];
 
+  services.xserver.desktopManager.deepin.enable = true;
+
   users.users.mohamed = {
     isNormalUser = true;
     description = "Mohamed Elkebir";
