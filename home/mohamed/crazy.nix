@@ -3,8 +3,11 @@
 {
   imports = [
     ../features/cli
+    ../features/nvim
     ../features/desktop/hyprland
     ../features/desktop/programs/alacritty.nix
+    ../features/desktop/programs/firefox.nix
+    ../features/desktop/programs/vscode.nix
   ];
 
   home.username = "mohamed";

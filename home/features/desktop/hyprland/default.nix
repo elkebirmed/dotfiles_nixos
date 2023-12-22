@@ -1,7 +1,10 @@
 { pkgs, inputs, config, lib, ... }: {
   imports = [
     inputs.hyprland.homeManagerModules.default
-    inputs.nix-colors.homeManagerModules.default
+
+    ./wofi.nix
+    ./waybar.nix
+    ./swaylock.nix
   ];
 
   colorScheme = inputs.nix-colors.colorSchemes.dracula;
@@ -14,8 +17,8 @@
 
   wayland.windowManager.hyprland.settings = {
     general = {
-      gaps_in = 15;
-      gaps_out = 20;
+      gaps_in = 5;
+      gaps_out = 10;
       border_size = 2.7;
       cursor_inactive_timeout = 4;
       "col.active_border" = "0xff${config.colorscheme.colors.base0C}";
@@ -32,7 +35,11 @@
 
     input = {
       kb_layout = "fr,ara";
+      repeat_delay = 300;
+      numlock_by_default = true;
+      follow_mouse = true;
       touchpad.disable_while_typing = false;
+      touchpad.natural_scroll = true;
     };
 
     dwindle.split_width_multiplier = 1.35;
@@ -40,9 +47,16 @@
     misc = {
       vfr = true;
       close_special_on_empty = true;
+      disable_hyprland_logo = true;
       # Unfullscreen when opening something
       new_window_takes_over_fullscreen = 2;
     };
+    
+    master = {
+      new_is_master = true;
+    };
+    
+    windowrule = "float,^(alacritty)$";
 
     layerrule = [
       "blur,waybar"
@@ -122,8 +136,16 @@
       editor = defaultApp "text/plain";
 
       workspaces = [
-        "0" "1" "2" "3" "4" "5" "6" "7" "8" "9"
-        "F1" "F2" "F3" "F4" "F5" "F6" "F7" "F8" "F9" "F10" "F11" "F12"
+        { key = "KP_End"; name = "1"; }
+        { key = "KP_Down"; name = "2"; }
+        { key = "KP_Next"; name = "3"; }
+        { key = "KP_Left"; name = "4"; }
+        { key = "KP_Begin"; name = "5"; }
+        { key = "KP_Right"; name = "6"; }
+        { key = "KP_Home"; name = "7"; }
+        { key = "KP_Up"; name = "8"; }
+        { key = "KP_Prior"; name = "9"; }
+        { key = "KP_Insert"; name = "10"; }
       ];
       # Map keys (arrows and hjkl) to hyprland directions (l, r, u, d)
       directions = rec {
@@ -212,11 +234,11 @@
     ]))  ++
     # Change workspace
     (map (n:
-      "SUPER,${n},workspace,name:${n}"
+      "SUPER,${n.key},workspace,name:${n.name}"
     ) workspaces) ++
     # Move window to workspace
     (map (n:
-      "SUPERSHIFT,${n},movetoworkspacesilent,name:${n}"
+      "SUPERSHIFT,${n.key},movetoworkspacesilent,name:${n.name}"
     ) workspaces) ++
     # Move focus
     (lib.mapAttrsToList (key: direction:

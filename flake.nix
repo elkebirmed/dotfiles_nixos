@@ -82,6 +82,7 @@
           extraSpecialArgs = { inherit inputs outputs; };
 
           modules = [
+            inputs.nix-colors.homeManagerModules.default
             ./home/mohamed/crazy.nix
           ];
         };

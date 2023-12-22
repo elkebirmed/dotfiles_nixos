@@ -9,6 +9,13 @@
     ripgrep # Better grep
     fd # Better find
     jq # JSON pretty printer and manipulator
+
+    nil # Nix LSP
+    nixfmt # Nix formatter
+    # nvd # Differ
+    # nix-output-monitor
     nh # Nice wrapper for NixOS and HM
+
+    # ltex-ls # Spell checking LSP
   ];
 }
