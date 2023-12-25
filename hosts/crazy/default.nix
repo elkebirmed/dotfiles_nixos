@@ -24,7 +24,6 @@ in
       ../optional/pipewire.nix
     ];
 
-
   users.users.mohamed = {
     isNormalUser = true;
     description = "Mohamed Elkebir";

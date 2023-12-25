@@ -4,7 +4,9 @@
   imports = [
     ../features/cli
     ../features/nvim
+    ../features/desktop/wallpapers.nix
     ../features/desktop/hyprland
+    ../features/desktop/programs/misc.nix
     ../features/desktop/programs/alacritty.nix
     ../features/desktop/programs/firefox.nix
     ../features/desktop/programs/vscode.nix

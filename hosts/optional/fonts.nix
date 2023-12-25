@@ -4,7 +4,7 @@
   fonts = {
     packages = with pkgs; [
       # icon fonts
-      material-design-icons
+      font-awesome
 
       # normal fonts
       noto-fonts

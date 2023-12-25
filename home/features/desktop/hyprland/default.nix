@@ -4,10 +4,11 @@
 
     ./wofi.nix
     ./waybar.nix
+    ./swww.nix
     ./swaylock.nix
   ];
 
-  colorScheme = inputs.nix-colors.colorSchemes.dracula;
+  colorScheme = inputs.nix-colors.colorSchemes.paraiso;
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -19,14 +20,14 @@
     general = {
       gaps_in = 5;
       gaps_out = 10;
-      border_size = 2.7;
+      border_size = 2;
       cursor_inactive_timeout = 4;
-      "col.active_border" = "0xff${config.colorscheme.colors.base0C}";
+      "col.active_border" = "0xff${config.colorscheme.colors.base0B}";
       "col.inactive_border" = "0xff${config.colorscheme.colors.base02}";
     };
 
     group = {
-      "col.border_active" = "0xff${config.colorscheme.colors.base0B}";
+      "col.border_active" = "0xff${config.colorscheme.colors.base0A}";
       "col.border_inactive" = "0xff${config.colorscheme.colors.base04}";
       groupbar = {
         font_size = 11;
@@ -35,9 +36,12 @@
 
     input = {
       kb_layout = "fr,ara";
+      kb_options =  "grp:win_space_toggle";
       repeat_delay = 300;
       numlock_by_default = true;
       follow_mouse = true;
+      sensitivity = 0.8;
+      accel_profile = "adaptive";
       touchpad.disable_while_typing = false;
       touchpad.natural_scroll = true;
     };
@@ -112,6 +116,7 @@
     };
 
     bind = let
+      swww = "${config.programs.swww.package}/bin/swww";
       swaylock = "${config.programs.swaylock.package}/bin/swaylock";
       playerctl = "${config.services.playerctld.package}/bin/playerctl";
       playerctld = "${config.services.playerctld.package}/bin/playerctld";
@@ -153,33 +158,33 @@
         h = left; l = right; k = up; j = down;
       };
     in [
-      "SUPERSHIFT,q,killactive"
-      "SUPERSHIFT,e,exit"
+      "SUPERSHIFT, q, exit"
+      "SUPER, q, killactive"
+      "SUPER, s, togglesplit"
+      "SUPER, f, fullscreen, 1"
+      "SUPERSHIFT, f, fullscreen, 0"
+      
+      "SUPERSHIFT, space, togglefloating"
 
-      "SUPER,s,togglesplit"
-      "SUPER,f,fullscreen,1"
-      "SUPERSHIFT,f,fullscreen,0"
-      "SUPERSHIFT,space,togglefloating"
+      "SUPER, KP_Subtract, splitratio, -0.25"
+      "SUPERSHIFT, KP_Subtract, splitratio, -0.3333333"
 
-      "SUPER,minus,splitratio,-0.25"
-      "SUPERSHIFT,minus,splitratio,-0.3333333"
+      "SUPER, KP_Add, splitratio, 0.25"
+      "SUPERSHIFT, KP_Add, splitratio, 0.3333333"
 
-      "SUPER,equal,splitratio,0.25"
-      "SUPERSHIFT,equal,splitratio,0.3333333"
+      "SUPER, g, togglegroup"
+      "SUPER, t, lockactivegroup, toggle"
+      "SUPER, KP_Multiply, changegroupactive, f"
+      "SUPERSHIFT, KP_Multiply, changegroupactive, b"
 
-      "SUPER,g,togglegroup"
-      "SUPER,t,lockactivegroup,toggle"
-      "SUPER,apostrophe,changegroupactive,f"
-      "SUPERSHIFT,apostrophe,changegroupactive,b"
-
-      "SUPER,u,togglespecialworkspace"
-      "SUPERSHIFT,u,movetoworkspacesilent,special"
+      "SUPER, u, togglespecialworkspace"
+      "SUPERSHIFT, u, movetoworkspacesilent, special"
 
       # Program bindings
-      "SUPER,Return,exec,${terminal}"
-      "SUPER,e,exec,${editor}"
-      "SUPER,v,exec,${editor}"
-      "SUPER,b,exec,${browser}"
+      "SUPER, Return, exec, ${terminal}"
+      "SUPER, e, exec, ${editor}"
+      "SUPER, b, exec, ${browser}"
+    
       # Brightness control (only works if the system has lightd)
       ",XF86MonBrightnessUp,exec,light -A 10"
       ",XF86MonBrightnessDown,exec,light -U 10"
@@ -265,5 +270,14 @@
       "SUPER,mouse:272,movewindow"
       "SUPER,mouse:273,resizewindow"
     ];
+  };
+
+  wayland.windowManager.hyprland.extraConfig = ''
+    exec-once = swww query || swww init
+    exec-once = ~/.config/hypr/scripts/wallpaper.sh init
+  '';
+
+  home.file = {
+    ".config/hypr/scripts/wallpaper.sh".source = ./scripts/wallpaper.sh;
   };
 }

@@ -6,7 +6,7 @@ let
 
   hasHyprland = config.wayland.windowManager.hyprland.enable;
 
-  colorScheme = inputs.nix-colors.colorSchemes.tokyo-night-storm;
+  colorScheme = inputs.nix-colors.colorSchemes.paraiso;
   colors = colorScheme.colors;
 in
 {
@@ -24,7 +24,7 @@ in
         layer = "top";
         height = 30;
         spacing = 4;
-        margin = "5px 0 0 3px";
+        margin = "5px 0 0 0";
         position = "top";
         passthrough = true;
         
@@ -45,7 +45,6 @@ in
           "hyprland/language"
           "battery"
           "clock"
-          "custom/hostname"
         ];
 
         battery = {
@@ -78,7 +77,7 @@ in
         temperature = {
           critical-threshold = 80;
           format = "{temperatureC}°C {icon}";
-          format-icons = ["" "" ""];
+          format-icons = ["" "" ""];
         };
 
         backlight = {
@@ -88,7 +87,7 @@ in
 
         network = {
           # format-wifi = "{essid} ({signalStrength}%) ";
-          format-wifi = "({signalStrength}%) ";
+          format-wifi = "{signalStrength}% ";
           format-ethernet = "{ipaddr}/{cidr} ";
           tooltip-format = "{ifname} via {gwaddr} ";
           format-linked = "{ifname} (No IP) ";
@@ -98,10 +97,13 @@ in
 
         "hyprland/language" = {
           format = "{}";
+          format-ar = "ع";
+          format-en = "𝑒𝑛";
+          format-fr = "𝑓𝑟";
         };
 
         pulseaudio = {
-          format = "{icon} {volume}%";
+          format = "{icon}  {volume}%";
           format-muted = "  0%";
           format-icons = {
             headphone = "󰋋";
@@ -111,17 +113,12 @@ in
           };
           on-click = pavucontrol;
         };
-        
-        "custom/hostname" = {
-          exec = "echo $USER";
-          on-click = "${systemctl} --user restart waybar";
-        };
       };
     };
 
     style = /* css */ ''
       * {
-        font-family: 'JetBrainsMono Nerd Font';
+        font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
         font-size: 11pt;
       }
 
@@ -132,9 +129,9 @@ in
       .modules-right {
         margin-right: 10px;
         margin-left: 10px;
-        border: 1px solid #${colors.base0A};
         border-radius: 10px;
         padding: 0 10px;
+        background-color: #${colors.base07};
       }
 
       .modules-right * {
@@ -144,7 +141,7 @@ in
       #waybar {
         opacity: 0.85;
         background-color: transparent;
-        color: #${colors.base05};
+        color: #${colors.base00};
       }
 
       #workspaces {
@@ -153,10 +150,10 @@ in
       }
 
       #workspaces button {
-        border: 1px solid #${colors.base0A};
-        border-radius: 100%;
-        background-color: #${colors.base01};
-        color: #${colors.base05};
+        font-weight: bold;
+        border-radius: 10px;
+        background-color: #${colors.base07};
+        color: #${colors.base00};
         padding: 0 5px;
         margin-right: 5px;
       }
@@ -172,43 +169,28 @@ in
 
       #workspaces button.focused,
       #workspaces button.active {
-        background-color: #${colors.base0A};
-        color: #${colors.base01};
+        background-color: #${colors.base0B};
+        color: #${colors.base00};
       }
 
       #window {
-        border: 1px solid #${colors.base0A};
+        background-color: #${colors.base07};
         border-radius: 10px;
         padding: 0 10px;
       }
 
-      #idle_inhibitor,
-      #pulseaudio,
-      #memory,
-      #temperature,
-      #clock,
-      #custom-hostname {
-        min-width: 20px;
-      }
-
-      #cpu {
-        min-width: 45px;
-      }
-
-      #backlight {
-        min-width: 60px;
+      #network,
+      #language {
+        margin-right: 8px;
       }
 
       #battery {
-        min-width: 70px;
+        margin-right: 12px;
       }
 
-      #network {
-        min-width: 80px;
-      }
-
-      #custom-hostname {
-        color: #${colors.base0A};
+      #cpu,
+      #backlight {
+        margin-right: 4px;
       }
 
       #network.disconnected,
