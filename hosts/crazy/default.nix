@@ -20,12 +20,10 @@ in
       ../optional/fonts.nix
       ../optional/desktop.nix
       ../optional/hyprland.nix
-      # ../optional/sddm.nix
+      ../optional/sddm.nix
       ../optional/pipewire.nix
     ];
 
-  services.xserver.desktopManager.gnome.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
 
   users.users.mohamed = {
     isNormalUser = true;
