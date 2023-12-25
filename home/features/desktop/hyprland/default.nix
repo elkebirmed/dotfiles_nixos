@@ -10,6 +10,14 @@
 
   colorScheme = inputs.nix-colors.colorSchemes.paraiso;
 
+  home.packages = with pkgs; [
+    brightnessctl
+    pulseaudio
+  ];
+
+  services.playerctld.enable = true;
+  services.mako.enable = true;
+
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -139,6 +147,7 @@
       terminal = config.home.sessionVariables.TERMINAL;
       browser = defaultApp "x-scheme-handler/https";
       editor = defaultApp "text/plain";
+      file-manager = "${pkgs.xfce.thunar}/bin/thunar";
 
       workspaces = [
         { key = "KP_End"; name = "1"; }
@@ -163,8 +172,8 @@
       "SUPER, s, togglesplit"
       "SUPER, f, fullscreen, 1"
       "SUPERSHIFT, f, fullscreen, 0"
-      
       "SUPERSHIFT, space, togglefloating"
+      "SUPER, j, togglesplit"
 
       "SUPER, KP_Subtract, splitratio, -0.25"
       "SUPERSHIFT, KP_Subtract, splitratio, -0.3333333"
@@ -180,20 +189,28 @@
       "SUPER, u, togglespecialworkspace"
       "SUPERSHIFT, u, movetoworkspacesilent, special"
 
+      "SUPERCONTROL, right, workspace, e+1"
+      "SUPERCONTROL, left, workspace, e-1"
+
+      # Passthrough SUPER KEY to Virtual Machine
+      "SUPER, p, submap, passthru"
+      "SUPER, Escape, submap, reset"
+
       # Program bindings
       "SUPER, Return, exec, ${terminal}"
-      "SUPER, e, exec, ${editor}"
+      "SUPER, c, exec, ${editor}"
       "SUPER, b, exec, ${browser}"
+      "SUPER, e, exec, ${file-manager}"
     
       # Brightness control (only works if the system has lightd)
-      ",XF86MonBrightnessUp,exec,light -A 10"
-      ",XF86MonBrightnessDown,exec,light -U 10"
+      ",XF86MonBrightnessUp, exec, brightnessctl -q s +10%"
+      ",XF86MonBrightnessDown, exec, brightnessctl -q s 10%-"
       # Volume
-      ",XF86AudioRaiseVolume,exec,${pactl} set-sink-volume @DEFAULT_SINK@ +5%"
-      ",XF86AudioLowerVolume,exec,${pactl} set-sink-volume @DEFAULT_SINK@ -5%"
-      ",XF86AudioMute,exec,${pactl} set-sink-mute @DEFAULT_SINK@ toggle"
-      "SHIFT,XF86AudioMute,exec,${pactl} set-source-mute @DEFAULT_SOURCE@ toggle"
-      ",XF86AudioMicMute,exec,${pactl} set-source-mute @DEFAULT_SOURCE@ toggle"
+      ",XF86AudioRaiseVolume, exec, ${pactl} set-sink-volume @DEFAULT_SINK@ +5%"
+      ",XF86AudioLowerVolume, exec, ${pactl} set-sink-volume @DEFAULT_SINK@ -5%"
+      ",XF86AudioMute, exec, ${pactl} set-sink-mute @DEFAULT_SINK@ toggle"
+      "SHIFT,XF86AudioMute, exec, ${pactl} set-source-mute @DEFAULT_SOURCE@ toggle"
+      ",XF86AudioMicMute, exec, ${pactl} set-source-mute @DEFAULT_SOURCE@ toggle"
       # Screenshotting
       # ",Print,exec,${grimblast} --notify --freeze copy output"
       # "SHIFT,Print,exec,${grimblast} --notify --freeze copy active"
@@ -209,33 +226,32 @@
 
     (lib.optionals config.services.playerctld.enable [
       # Media control
-      ",XF86AudioNext,exec,${playerctl} next"
-      ",XF86AudioPrev,exec,${playerctl} previous"
-      ",XF86AudioPlay,exec,${playerctl} play-pause"
-      ",XF86AudioStop,exec,${playerctl} stop"
-      "ALT,XF86AudioNext,exec,${playerctld} shift"
-      "ALT,XF86AudioPrev,exec,${playerctld} unshift"
-      "ALT,XF86AudioPlay,exec,systemctl --user restart playerctld"
+      ",XF86AudioNext, exec, ${playerctl} next"
+      ",XF86AudioPrev, exec, ${playerctl} previous"
+      ",XF86AudioPlay, exec, ${playerctl} play-pause"
+      ",XF86AudioStop, exec, ${playerctl} stop"
+      "ALT,XF86AudioNext, exec, ${playerctld} shift"
+      "ALT,XF86AudioPrev, exec, ${playerctld} unshift"
+      "ALT,XF86AudioPlay, exec, systemctl --user restart playerctld"
     ]) ++
     # Screen lock
     (lib.optionals config.programs.swaylock.enable [
-      ",XF86Launch5,exec,${swaylock} -S --grace 2"
-      ",XF86Launch4,exec,${swaylock} -S --grace 2"
-      "SUPER,backspace,exec,${swaylock} -S --grace 2"
+      "SUPERSHIFT, l, exec, ${swaylock} -S --grace 2"
+      ",XF86Lock , exec, ${swaylock} -S --grace 2"
     ]) ++
     # Notification manager
     (lib.optionals config.services.mako.enable [
-      "SUPER,w,exec,${makoctl} dismiss"
+      "SUPER, w, exec, ${makoctl} dismiss"
     ]) ++
 
     # Launcher
     (lib.optionals config.programs.wofi.enable [
-      "SUPER,x,exec,${wofi} -S drun -x 10 -y 10 -W 25% -H 60%"
-      "SUPER,d,exec,${wofi} -S run"
+      "SUPER, x, exec, ${wofi} -S drun -x 10 -y 10 -W 25% -H 60%"
+      "SUPER, d, exec, ${wofi} -S run"
     ] ++ (lib.optionals config.programs.password-store.enable [
-      ",Scroll_Lock,exec,${pass-wofi}" # fn+k
-      ",XF86Calculator,exec,${pass-wofi}" # fn+f12
-      "SUPER,semicolon,exec,pass-wofi"
+      ",Scroll_Lock, exec, ${pass-wofi}" # fn+k
+      ",XF86Calculator, exec, ${pass-wofi}" # fn+f12
+      "SUPER, semicolon, exec, pass-wofi"
     ]))  ++
     # Change workspace
     (map (n:

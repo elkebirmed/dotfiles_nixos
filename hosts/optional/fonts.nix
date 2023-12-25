@@ -7,6 +7,7 @@
       font-awesome
 
       # normal fonts
+      fira
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
