@@ -3,7 +3,7 @@
 {
   imports = [
     ../features/cli
-    ../features/optional/fish.nix
+    ../features/cli/optional/fish.nix
 
     ../features/nvim
     ../features/desktop/wallpapers.nix
