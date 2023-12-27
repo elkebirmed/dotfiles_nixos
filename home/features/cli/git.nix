@@ -1,18 +1,15 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   home.packages = [ 
     pkgs.gh
   ];
   
   programs.git = {
-    enable = true;
-    userName = "Mohamed Elkebir";
-    userEmail = "mohamedelkebir85@gmail.com";
+    enable = lib.mkDefault true;
 
     extraConfig = {
-      init.defaultBranch = "main";
-
-      credential.helper = "!gh auth git-credential";
+      init.defaultBranch = lib.mkDefault "main";
+      credential.helper = lib.mkDefault "!gh auth git-credential";
     };
   };
 }

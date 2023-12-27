@@ -1,7 +1,6 @@
 { pkgs, ... }: {
   imports = [
     ./git.nix
-    ./fish.nix
   ];
 
   home.packages = with pkgs; [
@@ -19,8 +18,9 @@
 
     # ltex-ls # Spell checking LSP
 
-    nodejs_21
+    nodejs_21 # NodeJS
+    yarn # NodeJS package manager
 
-    sassc
+    sassc # SCSS preprocessor
   ];
 }

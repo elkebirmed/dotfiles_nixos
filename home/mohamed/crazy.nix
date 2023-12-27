@@ -3,6 +3,8 @@
 {
   imports = [
     ../features/cli
+    ../features/optional/fish.nix
+
     ../features/nvim
     ../features/desktop/wallpapers.nix
     ../features/desktop/hyprland
@@ -15,6 +17,18 @@
   home.username = "mohamed";
   home.homeDirectory = "/home/mohamed";
   home.stateVersion = "23.11";
+
+  programs.git = {
+    enable = true;
+    userName = "Mohamed Elkebir";
+    userEmail = "mohamedelkebir85@gmail.com";
+
+    extraConfig = {
+      init.defaultBranch = "main";
+
+      credential.helper = "!gh auth git-credential";
+    };
+  };
 
   nixpkgs = {
     config = {

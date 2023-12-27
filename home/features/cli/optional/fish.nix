@@ -1,10 +1,10 @@
-{ pkgs, config, ... }:
+{ pkgs, config, lib, ... }:
 
 {
   programs.alacritty = {
     settings = {
       shell = {
-        program = "${config.programs.fish.package}/bin/fish";
+        program = lib.mkDefault "${config.programs.fish.package}/bin/fish";
       };
     };
   };
