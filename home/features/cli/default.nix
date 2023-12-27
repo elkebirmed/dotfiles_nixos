@@ -20,7 +20,7 @@
 
     nodejs_21 # NodeJS
     yarn # NodeJS package manager
-
+    typescript
     sassc # SCSS preprocessor
   ];
 }
