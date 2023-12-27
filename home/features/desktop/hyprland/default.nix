@@ -1,25 +1,28 @@
 { pkgs, inputs, config, lib, ... }: {
   imports = [
+    ../wallpapers
     ./wofi.nix
     ./ags.nix
     ./swww.nix
     ./swaylock.nix
   ];
 
-  colorScheme = inputs.nix-colors.colorSchemes.paraiso;
+  colorScheme = lib.mkDefault inputs.nix-colors.colorSchemes.paraiso;
 
   home.packages = with pkgs; [
     brightnessctl
     pulseaudio
   ];
 
-  services.playerctld.enable = true;
-  services.mako.enable = true;
+  programs.pywal.enable = lib.mkDefault true;
+
+  services.playerctld.enable = lib.mkDefault true;
+  services.mako.enable = lib.mkDefault true;
 
   wayland.windowManager.hyprland = {
     enable = true;
-    xwayland.enable = true;
-    systemd.enable = true;
+    xwayland.enable = lib.mkDefault true;
+    systemd.enable = lib.mkDefault true;
   };
 
   wayland.windowManager.hyprland.settings = {

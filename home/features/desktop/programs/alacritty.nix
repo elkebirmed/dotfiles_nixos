@@ -6,6 +6,4 @@
       
     };
   };
-  
-  home.sessionVariables.TERMINAL = "${config.programs.alacritty.package}/bin/alacritty";
 }
