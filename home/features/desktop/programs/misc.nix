@@ -2,5 +2,6 @@
   home.packages = with pkgs; [
     xfce.thunar
     peazip
+    google-chrome
   ];
 }
