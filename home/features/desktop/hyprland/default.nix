@@ -14,6 +14,33 @@
     pulseaudio
   ];
 
+  gtk = {
+    enable = true;
+
+    theme = {
+      package = pkgs.adw-gtk3;
+      name = "adw-gtk3-dark";
+    };
+
+    font = {
+      name = "Fira Sans";
+      size = 11;
+    };
+  };
+
+  qt = {
+    enable = true;
+    platformTheme = "gtk";
+    style.name = "adwaita-dark";
+  };
+
+  home.pointerCursor = {
+    gtk.enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Ice";
+    size = 16;
+  };
+
   programs.pywal.enable = lib.mkDefault true;
 
   services.playerctld.enable = lib.mkDefault true;
@@ -64,11 +91,11 @@
       # Unfullscreen when opening something
       new_window_takes_over_fullscreen = 2;
     };
-    
+
     master = {
       new_is_master = true;
     };
-    
+
     windowrule = "float,^(alacritty)$";
 
     layerrule = [
@@ -85,7 +112,7 @@
       inactive_opacity = 0.75;
       fullscreen_opacity = 1.0;
       rounding = 5;
-      
+
       blur = {
         enabled = true;
         size = 5;
@@ -198,7 +225,7 @@
       "SUPER, c, exec, ${editor}"
       "SUPER, b, exec, ${browser}"
       "SUPER, e, exec, ${file-manager}"
-    
+
       # Brightness control (only works if the system has lightd)
       ",XF86MonBrightnessUp, exec, brightnessctl -q s +10%"
       ",XF86MonBrightnessDown, exec, brightnessctl -q s 10%-"

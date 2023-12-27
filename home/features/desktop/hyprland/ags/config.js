@@ -4,10 +4,7 @@ import Notifications from "resource:///com/github/Aylur/ags/service/notification
 
 import { Bar } from "./modules/topbar.js";
 
-const scss = App.configDir + "/scss/main.scss";
 const css = App.configDir + "/style.css";
-
-exec(`sassc ${scss} ${css}`);
 
 export default {
   style: css,

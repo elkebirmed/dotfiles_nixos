@@ -23,14 +23,14 @@ const Clock = () =>
   });
 
 // layout of the bar
-const Right = () =>
+const Left = () =>
   Box({
     children: [
       Workspaces(),
       //   HardwareBox(),
       //   PrayerTimes(),
       // NotificationIndicator(),
-      // ClientTitle(),
+      ClientTitle(),
     ],
   });
 
@@ -39,7 +39,7 @@ const Center = () =>
     children: [Clock()],
   });
 
-const Left = () =>
+const Right = () =>
   Box({
     hpack: "end",
     children: [
@@ -61,8 +61,8 @@ export const Bar = ({ monitor } = {}) =>
     exclusivity: "exclusive",
     child: CenterBox({
       className: "bar shadow",
-      startWidget: Right(),
+      startWidget: Left(),
       centerWidget: Center(),
-      endWidget: Left(),
+      endWidget: Right(),
     }),
   });
