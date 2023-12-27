@@ -2,18 +2,18 @@
 
 {
   services.xserver = {
-    displayManager.lightdm.enable = false;
+    displayManager.lightdm.enable = lib.mkDefault false;
     
     displayManager.sddm = {
 
-      enable = true;
-      autoNumlock = true;
-      wayland.enable = true;
-      theme = "sugar-catppuccin";
+      enable = lib.mkDefault true;
+      autoNumlock = lib.mkDefault true;
+      wayland.enable = lib.mkDefault true;
+      theme = lib.mkDefault "sugar-catppuccin";
 
       settings = {
         autologin = {
-          Session = "hyprland";
+          Session = lib.mkDefault "hyprland";
         };
       };
     };

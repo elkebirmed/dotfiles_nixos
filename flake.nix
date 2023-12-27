@@ -84,6 +84,8 @@
 
           modules = [
             inputs.nix-colors.homeManagerModules.default
+            inputs.ags.homeManagerModules.default
+            inputs.hyprland.homeManagerModules.default
             ./home/mohamed/crazy.nix
           ];
         };

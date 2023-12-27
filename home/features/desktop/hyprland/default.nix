@@ -1,7 +1,5 @@
 { pkgs, inputs, config, lib, ... }: {
   imports = [
-    inputs.hyprland.homeManagerModules.default
-
     ./wofi.nix
     ./ags.nix
     ./swww.nix

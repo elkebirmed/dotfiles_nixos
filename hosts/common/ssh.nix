@@ -2,13 +2,13 @@
 
 {
   services.openssh = {
-    enable = true;
-    openFirewall = true;
+    enable = lib.mkDefault true;
+    openFirewall = lib.mkDefault true;
 
     settings = {
-      X11Forwarding = true;
-      PermitRootLogin = "no"; # disable root login
-      PasswordAuthentication = false; # disable password login
+      X11Forwarding = lib.mkDefault true;
+      PermitRootLogin = lib.mkDefault "no"; # disable root login
+      PasswordAuthentication = lib.mkDefault false; # disable password login
     };
   };
 }

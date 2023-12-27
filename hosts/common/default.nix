@@ -28,12 +28,12 @@
   # Allow unfree packages
   nixpkgs = {
     overlays = builtins.attrValues outputs.overlays;
-    config.allowUnfree = true;
+    config.allowUnfree = lib.mkDefault true;
   };
 
   networking = {
-    networkmanager.enable = true;
-    resolvconf.dnsExtensionMechanism = false;
+    networkmanager.enable = lib.mkDefault true;
+    resolvconf.dnsExtensionMechanism = lib.mkDefault false;
   }; 
 
   environment.systemPackages = with pkgs; [
