@@ -14,6 +14,6 @@
   programs = {
     adb.enable = lib.mkDefault true;
     kdeconnect.enable = lib.mkDefault true;
-    dconf.enable = lib.mkDefault true
+    dconf.enable = lib.mkDefault true;
   };
 }
