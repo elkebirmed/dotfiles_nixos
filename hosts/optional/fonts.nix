@@ -5,6 +5,7 @@
     packages = with pkgs; [
       # icon fonts
       font-awesome
+      material-icons
 
       # normal fonts
       fira

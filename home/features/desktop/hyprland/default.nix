@@ -3,7 +3,7 @@
     inputs.hyprland.homeManagerModules.default
 
     ./wofi.nix
-    ./waybar.nix
+    ./ags.nix
     ./swww.nix
     ./swaylock.nix
   ];
@@ -71,13 +71,13 @@
     windowrule = "float,^(alacritty)$";
 
     layerrule = [
-      "blur,waybar"
-      "ignorezero,waybar"
+      "blur, waybar"
+      "ignorezero, waybar"
     ];
 
-    blurls = [
-      "waybar"
-    ];
+    # blurls = [
+    #   "waybar"
+    # ];
 
     decoration = {
       active_opacity = 0.94;
@@ -191,10 +191,6 @@
 
       "SUPERCONTROL, right, workspace, e+1"
       "SUPERCONTROL, left, workspace, e-1"
-
-      # Passthrough SUPER KEY to Virtual Machine
-      "SUPER, p, submap, passthru"
-      "SUPER, Escape, submap, reset"
 
       # Program bindings
       "SUPER, Return, exec, ${terminal}"

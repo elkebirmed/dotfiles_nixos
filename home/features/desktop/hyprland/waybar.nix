@@ -23,7 +23,6 @@ in
         mode = "dock";
         layer = "top";
         height = 30;
-        spacing = 4;
         margin = "5px 0 0 0";
         position = "top";
         passthrough = true;

@@ -12,6 +12,7 @@
     hardware.url = "github:nixos/nixos-hardware";
     impermanence.url = "github:nix-community/impermanence";
     nix-colors.url = "github:misterio77/nix-colors";
+    ags.url = "github:Aylur/ags";
 
     nh = {
       url = "github:viperml/nh";
