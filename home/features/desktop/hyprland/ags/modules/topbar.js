@@ -7,7 +7,7 @@ import {
 import { execAsync } from "resource:///com/github/Aylur/ags/utils.js";
 
 import { Workspaces } from "./widgets/workspace.js";
-
+let =
 const Clock = () =>
   Label({
     className: "clock",

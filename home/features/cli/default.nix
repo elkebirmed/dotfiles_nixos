@@ -4,6 +4,8 @@
   ];
 
   home.packages = with pkgs; [
+    util-linux
+
     bat # Better cat
     eza # Better ls
     ripgrep # Better grep
@@ -12,9 +14,12 @@
 
     nil # Nix LSP
     nixfmt # Nix formatter
+    nixpkgs-fmt
     # nvd # Differ
     # nix-output-monitor
     nh # Nice wrapper for NixOS and HM
+
+    stylua
 
     # ltex-ls # Spell checking LSP
 
@@ -22,5 +27,6 @@
     yarn # NodeJS package manager
     typescript
     sassc # SCSS preprocessor
+
   ];
 }
