@@ -23,8 +23,8 @@
     };
 
     iconTheme = {
-      package = pkgs.qogir-icon-theme;
-      name = "Qogir";
+      name = "Zafiro-icons-Dark";
+      package = pkgs.zafiro-icons;
     };
 
     font = {
