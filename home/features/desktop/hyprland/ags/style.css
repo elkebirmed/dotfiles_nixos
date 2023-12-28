@@ -6,17 +6,24 @@ window {
 
 .workspaces {
   background-color: #41323f;
-  margin: 5px 10px 0 10px;
+  margin: 5px 0 0 10px;
   padding: 5px;
-  border-radius: 100px; }
+  border-radius: 9999px; }
 
 .workspaces button {
   all: unset;
   padding: 2px 3px;
   font-family: "Font Awesome 6 Free Solid"; }
+  .workspaces button:hover {
+    color: #48b685; }
+  .workspaces button.focused {
+    color: #815ba4; }
 
-.workspaces button:hover {
-  color: #48b685; }
-
-.workspaces button.focused {
-  color: #815ba4; }
+.client-title {
+  background-color: #41323f;
+  margin: 5px 0 0 10px;
+  border-radius: 9999px; }
+  .client-title label {
+    padding: 5px 10px; }
+  .client-title image {
+    padding-left: 3px; }

@@ -27,21 +27,35 @@ window {
 
 .workspaces {
   background-color: $base01;
-  margin: 5px 10px 0 10px;
+  margin: 5px 0 0 10px;
   padding: 5px;
-  border-radius: 100px;
+  border-radius: 9999px;
 }
 
 .workspaces button {
   all: unset;
   padding: 2px 3px;
   font-family: $font-icon;
+
+  &:hover {
+    color: $base0B;
+  }
+
+  &.focused {
+    color: $base0E;
+  }
 }
 
-.workspaces button:hover {
-  color: $base0B;
-}
+.client-title {
+  background-color: $base01;
+  margin: 5px 0 0 10px;
+  border-radius: 9999px;
 
-.workspaces button.focused {
-  color: $base0E;
+  label {
+    padding: 5px 10px;
+  }
+
+  image {
+    padding-left: 3px;
+  }
 }
