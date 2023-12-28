@@ -18,8 +18,13 @@
     enable = true;
 
     theme = {
-      package = pkgs.adw-gtk3;
-      name = "adw-gtk3-dark";
+      package = pkgs.qogir-theme;
+      name = "Qogir";
+    };
+
+    iconTheme = {
+      package = pkgs.qogir-icon-theme;
+      name = "Qogir";
     };
 
     font = {
@@ -31,13 +36,13 @@
   qt = {
     enable = true;
     platformTheme = "gtk";
-    style.name = "adwaita-dark";
+    style.name = "Qogir";
   };
 
   home.pointerCursor = {
     gtk.enable = true;
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Ice";
+    package = pkgs.qogir-icon-theme;
+    name = "Qogir";
     size = 16;
   };
 

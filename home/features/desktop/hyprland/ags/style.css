@@ -1,5 +1,7 @@
+.unset {
+  all: unset; }
+
 window {
-  all: unset;
   background-color: transparent; }
 
 .workspaces {
