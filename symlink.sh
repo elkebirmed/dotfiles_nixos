@@ -4,11 +4,11 @@
 # when working on these configs
 
 remove() {
-  rm -rf ~/.config/eww
+  rm -rf ~/.config/ags
 }
 
 symlink() {
-  ln -s ~/Projects/dotfiles/home/features/desktop/hyprland/eww/config ~/.config/eww
+  ln -s ~/Projects/dotfiles/home/features/desktop/hyprland/ags/config ~/.config/ags
 }
 
 remove
