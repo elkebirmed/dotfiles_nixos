@@ -6,6 +6,13 @@
     ./lsp.nix
   ];
 
+  home.file = {
+    ".config/nvim/config" = {
+      source = ./config;
+      recursive = true;
+    };
+  };
+
   programs.neovim = {
     enable = true;
     viAlias = true;
