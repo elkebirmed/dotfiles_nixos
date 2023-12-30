@@ -4,7 +4,7 @@
     ./packages.nix
     ./gtk.nix
     ./wofi.nix
-    ./eww
+    ./ags
     ./swww.nix
     ./swaylock.nix
   ];

@@ -1,5 +1,0 @@
-(deflisten current_workspace :initial "1"
-"~/.config/eww/scripts/get_active_workspace.sh")
-
-(deflisten workspaces :initial "[{'window'}]"
-"~/.config/eww/scripts/workspaces.sh")

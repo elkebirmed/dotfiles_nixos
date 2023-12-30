@@ -1,7 +1,0 @@
-(include "./variables.yuck")
-(include "./windows.yuck")
-
-(include "./modules/bar.yuck")
-
-(include "./modules/logo.yuck")
-(include "./modules/workspaces.yuck")

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-dir="${1:-$HOME/Projects/dotfiles/home/features/desktop/hyprland/ags}"
+dir="${1:-$HOME/Projects/dotfiles/home/features/desktop/hyprland/ags/config}"
 
 mkdir -p /tmp/ags-config
 cd /tmp/ags-config
