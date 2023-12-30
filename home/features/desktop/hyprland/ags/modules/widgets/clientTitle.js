@@ -32,6 +32,7 @@ export const ClientTitle = () =>
   }).bind("visible", Hyprland.active.workspace, "id", (id) => {
     const clients = Hyprland.clients.filter((c) => c.workspace.id == id);
     console.log(id);
-    console.log(clients);
-    return !!clients.length;
+    console.log(clients.length);
+    console.log("\n");
+    return clients.length > 0;
   });
