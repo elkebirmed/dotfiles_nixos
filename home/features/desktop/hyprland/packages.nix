@@ -2,9 +2,19 @@
 
 {
   home.packages = with pkgs; [
-    brightnessctl
     pulseaudio
     gtk3
-    socat
+    libnotify
+    wl-gammactl
+    wl-clipboard
+    wf-recorder
+    hyprpicker
+    wayshot
+    swappy
+    slurp
+    imagemagick
+    pavucontrol
+    brightnessctl
+    swww
   ];
 }

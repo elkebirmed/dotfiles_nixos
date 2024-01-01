@@ -5,7 +5,6 @@
     ./gtk.nix
     ./wofi.nix
     ./ags
-    ./swww.nix
     ./swaylock.nix
   ];
 
@@ -21,7 +20,7 @@
   programs.pywal.enable = lib.mkDefault true;
 
   services.playerctld.enable = lib.mkDefault true;
-  services.mako.enable = lib.mkDefault true;
+  services.dunst.enable = lib.mkDefault true;
 
   wayland.windowManager.hyprland = {
     enable = true;

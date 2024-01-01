@@ -4,29 +4,37 @@
   ];
 
   home.packages = with pkgs; [
+    # tools
+    bat
+    eza
+    fd
+    ripgrep
+    fzf
+    socat
+    jq
+    acpi
+    inotify-tools
+    ffmpeg
+    libnotify
+    killall
+    zip
+    unzip
+    glib
     util-linux
 
-    bat # Better cat
-    eza # Better ls
-    ripgrep # Better grep
-    fd # Better find
-    jq # JSON pretty printer and manipulator
+    nh
 
-    nil # Nix LSP
-    nixfmt # Nix formatter
+    nil
+    nixfmt
     nixpkgs-fmt
-    # nvd # Differ
-    # nix-output-monitor
-    nh # Nice wrapper for NixOS and HM
-
+    nvd
+    nix-output-monitor
     stylua
+    ltex-ls
 
-    # ltex-ls # Spell checking LSP
-
-    nodejs_21 # NodeJS
-    yarn # NodeJS package manager
+    nodejs_21
+    yarn
     typescript
-    sassc # SCSS preprocessor
-
+    sassc
   ];
 }

@@ -3,5 +3,6 @@
     xfce.thunar
     peazip
     google-chrome
+    icon-library
   ];
 }
