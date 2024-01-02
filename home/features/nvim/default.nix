@@ -25,42 +25,54 @@
       curl
       tree-sitter
       luajitPackages.luarocks
-
-      vscode-langservers-extracted
-      dockerfile-language-server-nodejs
-      docker-compose-language-service
-      nixd
-      rnix-lsp
-      statix
-      nil
-      lua-language-server
-
       python311Packages.pynvim
-      python311Packages.pip
-
       php82Packages.composer
+      python311Packages.pip
+      # gnumake
+      # cargo
+      # gcc13
+      # unzip
+      # wget
+      # curl
+      # tree-sitter
+      # luajitPackages.luarocks
 
-      nodePackages.pyright
-      nodePackages.typescript-language-server
-      nodePackages.bash-language-server
+      # vscode-langservers-extracted
+      # dockerfile-language-server-nodejs
+      # docker-compose-language-service
+      # nixd
+      # rnix-lsp
+      # statix
+      # deadnix
+      # nil
+      # lua-language-server
+
+      # python311Packages.pynvim
+      # python311Packages.pip
+
+      # php82Packages.composer
+
+      # nodePackages.pyright
+      # nodePackages.typescript-language-server
+      # nodePackages.bash-language-server
     ];
 
-    plugins = with pkgs.vimPlugins; [
-      neo-tree-nvim
-      plenary-nvim
-      nui-nvim
-      nvim-web-devicons
-      image-nvim
-      nvim-window-picker
-      nvim-treesitter.withAllGrammars
-      nvim-lspconfig
-      tokyonight-nvim
-      lualine-nvim
-      lualine-lsp-progress
-      lspsaga-nvim
-      nvim-lightbulb
-      lspkind-nvim
-      nvim-cmp
-    ];
+    # plugins = with pkgs.vimPlugins; [
+    #   neo-tree-nvim
+    #   plenary-nvim
+    #   nui-nvim
+    #   nvim-web-devicons
+    #   image-nvim
+    #   nvim-window-picker
+    #   nvim-treesitter.withAllGrammars
+    #   nvim-lspconfig
+    #   tokyonight-nvim
+    #   lualine-nvim
+    #   lualine-lsp-progress
+    #   lspsaga-nvim
+    #   nvim-lightbulb
+    #   lspkind-nvim
+    #   nvim-cmp
+    # ];
   };
 }
