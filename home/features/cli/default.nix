@@ -29,6 +29,7 @@
     nixpkgs-fmt
     nvd
     nix-output-monitor
+    lua-language-server
     stylua
     ltex-ls
 
