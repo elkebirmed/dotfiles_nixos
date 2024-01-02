@@ -21,17 +21,9 @@
     unzip
     glib
     util-linux
+    lazygit
 
     nh
-
-    nil
-    nixfmt
-    nixpkgs-fmt
-    nvd
-    nix-output-monitor
-    lua-language-server
-    stylua
-    ltex-ls
 
     nodejs_21
     yarn

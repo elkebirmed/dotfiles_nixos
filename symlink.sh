@@ -5,10 +5,12 @@
 
 remove() {
   rm -rf ~/.config/ags
+  rm -rf ~/.config/nvim
 }
 
 symlink() {
   ln -s ~/Projects/dotfiles/home/features/desktop/hyprland/ags/config ~/.config/ags
+  ln -s ~/Projects/dotfiles/home/features/nvim/config ~/.config/nvim
 }
 
 remove

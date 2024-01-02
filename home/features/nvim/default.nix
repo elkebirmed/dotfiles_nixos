@@ -25,16 +25,42 @@
       curl
       tree-sitter
       luajitPackages.luarocks
+
+      vscode-langservers-extracted
+      dockerfile-language-server-nodejs
+      docker-compose-language-service
+      nixd
+      rnix-lsp
+      statix
+      nil
+      lua-language-server
+
       python311Packages.pynvim
-      php82Packages.composer
       python311Packages.pip
+
+      php82Packages.composer
+
+      nodePackages.pyright
+      nodePackages.typescript-language-server
+      nodePackages.bash-language-server
     ];
 
     plugins = with pkgs.vimPlugins; [
-      tokyonight-nvim
+      neo-tree-nvim
+      plenary-nvim
+      nui-nvim
+      nvim-web-devicons
+      image-nvim
+      nvim-window-picker
+      nvim-treesitter.withAllGrammars
       nvim-lspconfig
-
-      nvim-treesitter-parsers.lua
+      tokyonight-nvim
+      lualine-nvim
+      lualine-lsp-progress
+      lspsaga-nvim
+      nvim-lightbulb
+      lspkind-nvim
+      nvim-cmp
     ];
   };
 }
