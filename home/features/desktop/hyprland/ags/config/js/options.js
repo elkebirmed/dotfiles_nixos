@@ -171,7 +171,7 @@ export default {
       enums: ["top", "bottom"],
       type: "enum",
     }),
-    style: Option("normal", {
+    style: Option("separated", {
       enums: ["floating", "normal", "separated"],
       type: "enum",
     }),

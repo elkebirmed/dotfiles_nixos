@@ -1,4 +1,4 @@
-{ pkgs, inputs, config, lib, ... }: {
+{ lib, ... }: {
   imports = [
     ../wallpapers
     ./packages.nix
@@ -14,7 +14,7 @@
       recursive = true;
     };
 
-    ".config/hypr/scripts/wallpaper.sh".source = ./scripts/wallpaper.sh;
+    ".config/hypr/scripts".source = ./scripts;
   };
 
   programs.pywal.enable = lib.mkDefault true;

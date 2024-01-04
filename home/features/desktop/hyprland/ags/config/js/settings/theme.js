@@ -17,7 +17,7 @@ export function setTheme(name) {
   wallpaper();
 }
 
-export const WP = App.configDir + "/assets/";
+export const WP = "~/.config/wallpapers/";
 
 export const lightColors = {
   "theme.scheme": "light",
