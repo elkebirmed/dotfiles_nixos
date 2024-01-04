@@ -1,13 +1,14 @@
-{ config, lib, pkgs, inputs, outputs, ... }:
+{ lib, pkgs, inputs, outputs, ... }:
 
 {
   imports =
-    [ 
+    [
+      ./nix-ld.nix
       ./ssh.nix
     ];
 
   nix.settings = {
-    experimental-features = ["nix-command" "flakes"];
+    experimental-features = [ "nix-command" "flakes" ];
   };
 
   # do garbage collection weekly to keep disk usage low
@@ -34,7 +35,7 @@
   networking = {
     networkmanager.enable = lib.mkDefault true;
     resolvconf.dnsExtensionMechanism = lib.mkDefault false;
-  }; 
+  };
 
   environment.systemPackages = with pkgs; [
     vim

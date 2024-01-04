@@ -1,18 +1,12 @@
-{ config, lib, pkgs, inputs, ... }:
-let
-  exraOptions = {
-    user = {
-      path = "/home/mohamed";
-    };
-  };
-in
+{ pkgs, inputs, ... }:
+
 {
   imports =
-    [ 
+    [
       inputs.hardware.nixosModules.common-cpu-amd
       inputs.hardware.nixosModules.common-gpu-amd
       inputs.hardware.nixosModules.common-pc-ssd
-      
+
       ./hardware-configuration.nix
 
       ../common
@@ -22,14 +16,15 @@ in
       ../optional/hyprland.nix
       ../optional/sddm.nix
       ../optional/pipewire.nix
+      ../optional/keyd.nix
     ];
 
   users.users.mohamed = {
     isNormalUser = true;
     description = "Mohamed Elkebir";
-    
+
     extraGroups = [
-      "wheel" 
+      "wheel"
       "networkmanager"
       "video"
       "audio"
@@ -37,8 +32,8 @@ in
       "docker"
       "podman"
       "libvirtd"
-      ];
-      
+    ];
+
     packages = with pkgs; [
       home-manager
     ];
@@ -69,9 +64,9 @@ in
       LC_TELEPHONE = "ar_DZ.UTF-8";
       LC_TIME = "en_GB.UTF-8";
     };
-    
+
     supportedLocales = [ "all" ];
-  };  
+  };
 
   console = {
     font = "Lat2-Terminus16";

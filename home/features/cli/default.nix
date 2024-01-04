@@ -22,6 +22,8 @@
     glib
     util-linux
     lazygit
+    keyd
+    wev
 
     nh
 
