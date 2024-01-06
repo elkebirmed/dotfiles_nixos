@@ -16,5 +16,6 @@
     pavucontrol
     brightnessctl
     swww
+    eww-wayland
   ];
 }

@@ -4,6 +4,8 @@
   imports = [
     ../features/cli
     ../features/cli/optional/fish.nix
+    ../features/cli/optional/nushell.nix
+    ../features/cli/optional/zellij.nix
 
     ../features/nvim
 

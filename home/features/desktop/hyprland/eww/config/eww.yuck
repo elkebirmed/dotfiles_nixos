@@ -1,0 +1,6 @@
+(include "./variables.yuck")
+
+(include "./windows/bar.yuck")
+
+(include "./widgets/bar/os.yuck")
+(include "./widgets/bar/workspaces.yuck")

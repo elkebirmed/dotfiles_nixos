@@ -1,0 +1,8 @@
+(defwidget os []
+  (box
+    :orientation "horizontal"
+    :halign "center"
+    :class "os"
+    (button
+      :onclick "scripts/launch.sh wofi"
+      "󱄅")))
