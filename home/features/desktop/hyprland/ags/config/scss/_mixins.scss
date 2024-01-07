@@ -1,0 +1,92 @@
+@mixin title-font {
+  // Geometric sans-serif
+  font-family:
+    'Lexend',
+    sans-serif;
+}
+
+@mixin main-font {
+  // Other clean sans-serif
+  font-family:
+    'Rubik',
+    'Roboto',
+    'Ubuntu',
+    'Noto Sans',
+    sans-serif;
+}
+
+@mixin icon-material {
+  // Material Design Icons
+  font-family:
+    'Material Symbols Rounded',
+    'Material Symbols Outlined',
+    'Material Symbols Sharp';
+}
+
+@mixin icon-nerd {
+  // Nerd Fonts
+  font-family: 'JetBrainsMono Nerd Font', monospace;
+}
+
+@mixin tech-font {
+  // Monospace for sys info n stuff. Doesn't have to be a nerd font, but it's cool.
+  font-family: 'JetBrainsMono Nerd Font', monospace;
+}
+
+@mixin reading-font {
+  // The most readable fonts, for a comfortable reading experience
+  // in stuff like ChatGPT widget
+  font-family:
+    'Lexend',
+    'Noto Sans',
+    sans-serif;
+}
+
+@mixin small-rounding {
+  border-radius: $rounding_small;
+  -gtk-outline-radius: $rounding_small;
+}
+
+@mixin normal-rounding {
+  border-radius: $rounding_medium;
+  -gtk-outline-radius: $rounding_medium;
+}
+
+@mixin large-rounding {
+  border-radius: $rounding_large;
+  -gtk-outline-radius: $rounding_large;
+}
+
+@mixin full-rounding {
+  border-radius: 9999px;
+  -gtk-outline-radius: 9999px;
+}
+
+@mixin elevation-safe {
+  background: $surface;
+  color: $onSurface;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.69);
+  margin: $elevation_margin;
+}
+
+@mixin elevation2 {
+  box-shadow: 0px 2px 3px transparentize($shadow, 0.55);
+  margin: $elevation_margin;
+}
+
+@mixin elevation2-margin {
+  margin: $elevation_margin;
+}
+
+@mixin elevation2-padding {
+  padding: $elevation_margin;
+}
+
+@mixin elevation3 {
+  box-shadow: 0px 2px 5px $shadow;
+  margin: $elevation_margin;
+}
+
+@mixin small-transition {
+  transition: 200ms cubic-bezier(0.05, 0.7, 0.1, 1);
+}

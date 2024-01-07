@@ -1,0 +1,46 @@
+@mixin group {
+  background-color: $base;
+  border: 2px solid $rosewater;
+  margin: 0 10px;
+}
+
+@mixin button {
+  &:hover {
+    background-color: $hovercolor;
+    color: $base;
+  }
+
+  &:active {
+    background-color: $activecolor;
+  }
+}
+
+.bar {
+  font-size: 1rem;
+}
+
+.bar .panel {
+  margin: 5px 10px 0;
+}
+
+.bar .os button {
+  @include group;
+  @include button;
+  @include full-rounding;
+  padding: 5px 7px;
+  @include small-transition;
+  margin-left: 0;
+}
+
+.bar .workspaces {
+  @include group;
+  @include normal-rounding;
+}
+
+.bar .workspaces .button {
+  margin: 0 0px;
+  padding: 0 7px;
+  @include button;
+  @include small-transition;
+  @include full-rounding;
+}

@@ -1,12 +1,15 @@
-import { exec } from "resource:///com/github/Aylur/ags/utils.js";
-import { Label } from "resource:///com/github/Aylur/ags/widget.js"
-
-import FontIcon from "../../lib/FontIcon.js";
-import PanelButton from "../PanelButton.js";
+import { Utils, Widget } from "../../lib/imports.js";
 
 export default () =>
-  PanelButton({
+  Widget.Box({
     class_name: "os",
-    on_clicked: () => exec("wofi -S drun -x 10 -y 10 -W 25% -H 60%"),
-    content: FontIcon("󱄅"),
+    children: [
+      Widget.Button({
+        on_clicked: () => Utils.exec("wofi -S drun -x 10 -y 10 -W 25% -H 60%"),
+        child: Widget.Label({
+          class_name: "label icon-material",
+          label: "rocket_launch",
+        }),
+      }),
+    ],
   });

@@ -1,26 +1,16 @@
 @import "./variables.scss";
+@import "./mixins.scss";
+
+@import "./windows/bar.scss";
 
 * {
   all: unset;
 }
 
+.icon-material {
+  @include icon-material;
+}
+
 window {
-  font-family: $font;
-}
-
-.bar .panel {
-  margin: 5px 6px 0;
-}
-
-.bar .panel .os {
-  padding: 3px;
-  background-color: $rosewater;
-  font-size: 18px;
-  border-radius: 9999px;
-  border: 2px solid $base;
-  color: $base;
-
-  image, .font-icon {
-    margin-right: .222em;
-  }
+  @include main-font;
 }

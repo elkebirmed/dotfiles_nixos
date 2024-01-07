@@ -1,12 +1,14 @@
-import { Widget, Box } from "resource:///com/github/Aylur/ags/widget.js";
+import { Widget } from "../lib/imports.js";
 
 import Os from "./buttons/Os.js";
+import Workspaces from "./buttons/Workspaces.js";
 
-const Start = () => Box({ children: [Os(),], class_name: "start", });
+const Start = () =>
+  Widget.Box({ children: [Os(), Workspaces()], class_name: "start" });
 
-const Center = () => Box({ class_name: "center" });
+const Center = () => Widget.Box({ class_name: "center" });
 
-const End = () => Box({ class_name: "end" });
+const End = () => Widget.Box({ class_name: "end" });
 
 export default () =>
   Widget.Window({

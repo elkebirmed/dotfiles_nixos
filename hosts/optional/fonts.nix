@@ -6,8 +6,13 @@
       # icon fonts
       font-awesome
       material-icons
+      material-symbols
 
       # normal fonts
+      lexend
+      rubik
+      roboto
+      ubuntu_font_family
       fira
       noto-fonts
       noto-fonts-cjk

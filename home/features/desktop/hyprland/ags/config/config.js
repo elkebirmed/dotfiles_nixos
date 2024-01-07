@@ -1,10 +1,7 @@
+import { init } from "./js/lib/setup.js";
 import TopBar from "./js/bar/TopBar.js";
 
-import { init } from "./js/lib/setup.js";
-
-const windows = () => [
-  TopBar(),
-];
+const windows = () => [TopBar()];
 
 export default {
   onConfigParsed: init,

@@ -1,4 +1,13 @@
-import * as Utils from "resource:///com/github/Aylur/ags/utils.js";
+import { Utils } from "./imports.js";
+
+/**
+ * @param {number} length
+ * @param {number=} start
+ * @returns {Array<number>}
+ */
+export function range(length, start = 1) {
+  return Array.from({ length }, (_, i) => i + start);
+}
 
 /** @param {Array<string>} bins */
 export function dependencies(bins) {
