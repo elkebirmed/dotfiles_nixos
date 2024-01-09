@@ -23,6 +23,28 @@ tooltip {
 
 window {
   @include main-font;
+  color: $text;
+}
+
+menu {
+  background-color: $base;
+  border: 2px solid $rosewater;
+  opacity: 0.9;
+
+  &item {
+    border-bottom: 1px solid $rosewater;
+    border-top: 1px solid $rosewater;
+    padding: 5px 10px;
+
+    &:hover {
+      background-color: $hovercolor;
+    }
+
+    &:disabled {
+      color: $overlay2;
+      border: none;
+    }
+  }
 }
 
 @keyframes appear {

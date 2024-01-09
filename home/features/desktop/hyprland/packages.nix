@@ -19,5 +19,6 @@
     eww-wayland
     gnomeExtensions.bluetooth-battery
     bluez
+    libdbusmenu-gtk3
   ];
 }

@@ -56,7 +56,7 @@ export default () => {
   });
 
   const widgetContent = Widget.Stack({
-    class_name: "keyboard-layout",
+    class_name: "keyboard-layout settings-middle",
     transition: "slide_up_down",
     items: [...languageStackArray, ["undef", Widget.Label({ label: "?" })]],
     setup: (self) =>

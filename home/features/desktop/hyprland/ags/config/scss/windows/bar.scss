@@ -39,7 +39,6 @@
 }
 
 .bar .workspaces-button {
-  margin: 0 0px;
   padding: 0 7px;
   @include button;
   @include small-transition;
@@ -92,7 +91,13 @@
   }
 }
 
-.bar .system .keyboard-layout {
-  margin-right: 15px;
-  font-size: 1.1rem;
+.bar .tray {
+  @include group;
+  @include normal-rounding;
+  padding: 0 10px;
+  margin-right: 0;
+}
+
+.bar .tray .tray-menu {
+  opacity: 0;
 }

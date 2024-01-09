@@ -2,7 +2,6 @@ import { prettyTime } from "../../lib/utils.js";
 import { Widget, Battery } from "../../lib/imports.js";
 
 import Settings from "./Settings.js";
-import KeyboardLayout from "./KeyboardLayout.js";
 
 const Glib = imports.gi.GLib;
 
@@ -10,7 +9,7 @@ export default () =>
   Widget.EventBox({
     child: Widget.Box({
       class_name: "system",
-      children: [Settings(), KeyboardLayout(), BatteryPanel(), Clock()],
+      children: [Settings(), BatteryPanel(), Clock()],
     }),
   });
 

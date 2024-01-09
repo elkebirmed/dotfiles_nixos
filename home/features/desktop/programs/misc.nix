@@ -4,5 +4,6 @@
     peazip
     google-chrome
     icon-library
+    discord
   ];
 }
