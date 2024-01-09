@@ -20,3 +20,44 @@ export function dependencies(bins) {
 
   return deps.every((has) => has);
 }
+
+export const prettyTime = (seconds) => {
+  if (typeof seconds !== "number" || isNaN(seconds)) {
+    return "Invalid input";
+  }
+
+  const hours = Math.floor(seconds / 60 / 60);
+  const remainingMinutes = Math.floor((seconds / 60) % 60);
+
+  let prettyTime = "";
+  if (hours > 0) {
+    prettyTime += `${hours} hour${hours !== 1 ? "s" : ""}`;
+    if (remainingMinutes > 0) {
+      prettyTime += ` and ${remainingMinutes} minute${
+        remainingMinutes !== 1 ? "s" : ""
+      }`;
+    }
+  } else {
+    prettyTime = `${remainingMinutes} minute${
+      remainingMinutes !== 1 ? "s" : ""
+    }`;
+  }
+
+  return prettyTime;
+};
+
+// A guessing func to try to support langs not listed in data/languages.js
+export const isLanguageMatch = (abbreviation, word) => {
+  const lowerAbbreviation = abbreviation.toLowerCase();
+  const lowerWord = word.toLowerCase();
+  let j = 0;
+  for (let i = 0; i < lowerWord.length; i++) {
+    if (lowerWord[i] === lowerAbbreviation[j]) {
+      j++;
+    }
+    if (j === lowerAbbreviation.length) {
+      return true;
+    }
+  }
+  return false;
+};

@@ -6,6 +6,6 @@ const windows = () => [TopBar()];
 export default {
   onConfigParsed: init,
   windows: windows(),
-  maxStreamVolume: 1.05,
+  maxStreamVolume: 1.3,
   cacheNotificationActions: false,
 };

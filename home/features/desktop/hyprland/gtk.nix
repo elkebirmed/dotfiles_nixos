@@ -64,7 +64,7 @@ in
 
   gtk = {
     enable = true;
-    font.name = "Ubuntu Nerd Font";
+    font.name = "Roboto";
     theme.name = gtk-theme;
     cursorTheme = {
       name = cursor-theme;

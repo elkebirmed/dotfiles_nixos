@@ -7,7 +7,7 @@ export default () =>
       Widget.Button({
         on_clicked: () => Utils.exec("wofi -S drun -x 10 -y 10 -W 25% -H 60%"),
         child: Widget.Label({
-          class_name: "label icon-material",
+          class_name: "os-label icon-material",
           label: "rocket_launch",
         }),
       }),

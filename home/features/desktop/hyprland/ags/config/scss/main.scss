@@ -7,10 +7,30 @@
   all: unset;
 }
 
+tooltip {
+  animation-name: appear;
+  animation-duration: 100ms;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 1;
+  background-color: $surface0;
+  opacity: 0.95;
+  @include small-rounding;
+}
+
 .icon-material {
   @include icon-material;
 }
 
 window {
   @include main-font;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }

@@ -14,7 +14,7 @@ export default () =>
       center_widget: Widget.Box({
         children: range(10).map((i) =>
           Widget.Button({
-            class_name: "button icon-material",
+            class_name: "workspaces-button icon-material",
             attribute: i,
             label: "radio_button_unchecked",
             on_clicked: () => dispatch(i),

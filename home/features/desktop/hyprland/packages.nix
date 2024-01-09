@@ -17,5 +17,7 @@
     brightnessctl
     swww
     eww-wayland
+    gnomeExtensions.bluetooth-battery
+    bluez
   ];
 }

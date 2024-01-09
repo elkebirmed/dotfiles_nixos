@@ -30,6 +30,7 @@
   padding: 5px 7px;
   @include small-transition;
   margin-left: 0;
+  font-size: 1.2rem;
 }
 
 .bar .workspaces {
@@ -37,10 +38,61 @@
   @include normal-rounding;
 }
 
-.bar .workspaces .button {
+.bar .workspaces-button {
   margin: 0 0px;
   padding: 0 7px;
   @include button;
   @include small-transition;
   @include full-rounding;
+}
+
+.bar .title {
+  @include group;
+  @include normal-rounding;
+  @include title-font;
+  padding: 0 10px;
+
+  &-icon {
+    margin-right: 7px;
+  }
+}
+
+.bar .system {
+  @include group;
+  @include normal-rounding;
+  padding: 0 10px;
+}
+
+.bar .system .battery {
+  margin-right: 15px;
+
+  &-icon {
+    color: $green;
+    font-size: 1.2rem;
+  }
+
+  &-charging {
+    color: $green;
+  }
+
+  &-low {
+    color: $red;
+  }
+}
+
+.bar .system .settings {
+  margin-right: 15px;
+
+  .icon-material {
+    font-size: 1.2rem;
+  }
+
+  &-middle {
+    margin: 0 3px;
+  }
+}
+
+.bar .system .keyboard-layout {
+  margin-right: 15px;
+  font-size: 1.1rem;
 }

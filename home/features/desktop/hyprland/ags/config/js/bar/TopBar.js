@@ -1,14 +1,17 @@
 import { Widget } from "../lib/imports.js";
 
-import Os from "./buttons/Os.js";
-import Workspaces from "./buttons/Workspaces.js";
+import Os from "./panels/Os.js";
+import System from "./panels/System.js";
+import Title from "./panels/Title.js";
+import Workspaces from "./panels/Workspaces.js";
 
 const Start = () =>
-  Widget.Box({ children: [Os(), Workspaces()], class_name: "start" });
+  Widget.Box({ children: [Os(), Workspaces(), Title()], class_name: "start" });
 
 const Center = () => Widget.Box({ class_name: "center" });
 
-const End = () => Widget.Box({ class_name: "end" });
+const End = () =>
+  Widget.Box({ children: [System()], class_name: "end", hpack: "end" });
 
 export default () =>
   Widget.Window({
