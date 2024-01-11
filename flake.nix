@@ -53,8 +53,16 @@
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
       inherit (self) outputs;
+
+      # Supported systems for your flake packages, shell, etc.
+      systems = [
+        "x86_64-linux"
+      ];
+      # This is a function that generates an attribute by calling a function you
+      # pass to it, with each system as an argument
+      forAllSystems = nixpkgs.lib.genAttrs systems;
+
       lib = nixpkgs.lib // home-manager.lib;
-      systems = [ "x86_64-linux" ];
       forEachSystem = f: lib.genAttrs systems (system: f pkgsFor.${system});
       pkgsFor = lib.genAttrs systems (system: import nixpkgs {
         inherit system;
@@ -64,6 +72,7 @@
     {
       inherit lib;
 
+      packages = forEachSystem (pkgs: import ./pkgs { inherit pkgs; });
       overlays = import ./overlays { inherit inputs outputs; };
       formatter = forEachSystem (pkgs: pkgs.nixpkgs-fmt);
 
@@ -78,7 +87,7 @@
       };
 
       homeConfigurations = {
-        "mohamed@crazy" = home-manager.lib.homeManagerConfiguration {
+        "mohamed@crazy" = lib.homeManagerConfiguration {
           pkgs = pkgsFor.x86_64-linux;
           extraSpecialArgs = { inherit inputs outputs; };
 

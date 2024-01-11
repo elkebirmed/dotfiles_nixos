@@ -16,9 +16,10 @@
     pavucontrol
     brightnessctl
     swww
-    eww-wayland
     gnomeExtensions.bluetooth-battery
     bluez
     libdbusmenu-gtk3
+    mpvpaper
+    wluma
   ];
 }

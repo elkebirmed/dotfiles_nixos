@@ -5,5 +5,6 @@
     google-chrome
     icon-library
     discord
+    steam
   ];
 }

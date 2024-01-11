@@ -24,8 +24,10 @@
     lazygit
     keyd
     wev
+    cpio
 
     nh
+    nixpkgs-fmt
 
     nodejs_21
     yarn

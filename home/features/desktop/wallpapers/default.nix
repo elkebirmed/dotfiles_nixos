@@ -2,9 +2,15 @@
 
 {
   home.file = {
-    ".config/wallpapers" = {
+    ".config/wallpapers/images" = {
       source = ./images;
       recursive = true;
     };
+
+    ".config/wallpapers/videos" = {
+      source = ./videos;
+      recursive = true;
+    };
+
   };
 }

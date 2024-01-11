@@ -1,7 +1,6 @@
 @mixin group {
-  background-color: $base;
+  background-color: rgba($color: $base, $alpha: 0.8);
   border: 2px solid $rosewater;
-  margin: 0 10px;
 }
 
 @mixin button {
@@ -20,7 +19,7 @@
 }
 
 .bar .panel {
-  margin: 5px 10px 0;
+  margin: 5px 6px 0;
 }
 
 .bar .os button {
@@ -29,7 +28,6 @@
   @include full-rounding;
   padding: 5px 7px;
   @include small-transition;
-  margin-left: 0;
   font-size: 1.2rem;
 }
 
@@ -50,10 +48,6 @@
   @include normal-rounding;
   @include title-font;
   padding: 0 10px;
-
-  &-icon {
-    margin-right: 7px;
-  }
 }
 
 .bar .system {
@@ -63,8 +57,6 @@
 }
 
 .bar .system .battery {
-  margin-right: 15px;
-
   &-icon {
     color: $green;
     font-size: 1.2rem;
@@ -80,14 +72,8 @@
 }
 
 .bar .system .settings {
-  margin-right: 15px;
-
   .icon-material {
     font-size: 1.2rem;
-  }
-
-  &-middle {
-    margin: 0 3px;
   }
 }
 
@@ -95,9 +81,14 @@
   @include group;
   @include normal-rounding;
   padding: 0 10px;
-  margin-right: 0;
 }
 
-.bar .tray .tray-menu {
-  opacity: 0;
+.bar .notification {
+  @include group;
+  @include normal-rounding;
+  padding: 0 10px;
+
+  .icon-material {
+    font-size: 1.3rem;
+  }
 }

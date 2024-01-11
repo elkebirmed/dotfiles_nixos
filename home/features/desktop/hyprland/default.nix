@@ -1,4 +1,8 @@
-{ lib, ... }: {
+{ lib, inputs, pkgs, ... }:
+let
+  plugins = inputs.hyprland-plugins.packages.${pkgs.system};
+in
+{
   imports = [
     ../wallpapers
     ./packages.nix
@@ -15,6 +19,8 @@
     };
 
     ".config/hypr/scripts".source = ./scripts;
+
+    ".config/hypr/hyprload.toml".source = ./hyprload.toml;
   };
 
   programs.pywal.enable = lib.mkDefault true;

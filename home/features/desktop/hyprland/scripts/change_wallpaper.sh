@@ -2,7 +2,7 @@
 
 # Cycle wallpapers from folder each run
 
-DIR=$HOME/.config/wallpapers
+DIR=$HOME/.config/wallpapers/images
 PICS=($(ls ${DIR}))
 
 RANDOM_PICS=${PICS[ $RANDOM % ${#PICS[@]} ]}

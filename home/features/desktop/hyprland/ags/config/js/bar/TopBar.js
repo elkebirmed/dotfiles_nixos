@@ -5,14 +5,24 @@ import System from "./panels/System.js";
 import Title from "./panels/Title.js";
 import Tray from "./panels/Tray.js";
 import Workspaces from "./panels/Workspaces.js";
+import Notification from "./panels/NotificationPanel.js";
 
 const Start = () =>
-  Widget.Box({ children: [Os(), Workspaces(), Title()], class_name: "start" });
+  Widget.Box({
+    spacing: 8,
+    children: [Os(), Workspaces(), Title()],
+    class_name: "start",
+  });
 
 const Center = () => Widget.Box({ class_name: "center" });
 
 const End = () =>
-  Widget.Box({ children: [Tray(), System()], class_name: "end", hpack: "end" });
+  Widget.Box({
+    spacing: 8,
+    children: [Tray(), Notification(), System()],
+    class_name: "end",
+    hpack: "end",
+  });
 
 export default () =>
   Widget.Window({

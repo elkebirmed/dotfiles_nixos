@@ -8,6 +8,7 @@ import BluetoothIndicator from "./BluetoothIndicator.js";
 export default () =>
   Widget.Box({
     class_name: "settings",
+    spacing: 3,
     children: [
       AudioIndicator(),
       KeyboardLayout(),

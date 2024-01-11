@@ -9,6 +9,7 @@ export default () =>
   Widget.EventBox({
     child: Widget.Box({
       class_name: "system",
+      spacing: 15,
       children: [Settings(), BatteryPanel(), Clock()],
     }),
   });
@@ -74,4 +75,5 @@ const BatteryPanel = () =>
         ],
       }),
     ],
-  }).bind("tooltip_text", Battery, "time_remaining", (t) => prettyTime(t));
+    binds: [["tooltip_text", Battery, "time_remaining", (t) => prettyTime(t)]],
+  });

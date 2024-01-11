@@ -28,13 +28,15 @@ window {
 
 menu {
   background-color: $base;
-  border: 2px solid $rosewater;
-  opacity: 0.9;
+  opacity: 0.95;
+  border: 1px solid $crust;
 
   &item {
-    border-bottom: 1px solid $rosewater;
-    border-top: 1px solid $rosewater;
+    border-bottom: 1px solid $crust;
+    border-top: 1px solid $crust;
     padding: 5px 10px;
+    min-width: 150px;
+    margin-top: -1px;
 
     &:hover {
       background-color: $hovercolor;
