@@ -43,6 +43,7 @@
     neovim
     curl
     git
+    gccgo
     rust-bin.stable.latest.default
   ];
 
