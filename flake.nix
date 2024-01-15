@@ -48,6 +48,8 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    rust-overlay.url = "github:oxalica/rust-overlay";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:

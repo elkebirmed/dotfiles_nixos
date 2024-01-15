@@ -8,6 +8,9 @@ in
   # Third party overlays
   nh = inputs.nh.overlays.default;
 
+  # Rust overlay
+  rust-overlay = inputs.rust-overlay.overlays.default;
+
   # For every flake input, aliases 'pkgs.inputs.${flake}' to
   # 'inputs.${flake}.packages.${pkgs.system}' or
   # 'inputs.${flake}.legacyPackages.${pkgs.system}'
